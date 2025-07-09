@@ -73,3 +73,14 @@ public class JavaBasics {
         System.out.printf("You're final bill is -->%.2f",total);
     }
  } */
+
+ public class JavaBasics {
+public static void main(String[] args){ 
+   int x, y, z;
+x = y = z = 2; 
+x += y;//x=x+y==4
+y -= z;//y=y-z = 2-2
+z /= (x + y);//z=z/(x+y)2
+System.out.println(x + " " + y + " " + z);
+}
+}
