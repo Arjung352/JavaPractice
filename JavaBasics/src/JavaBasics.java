@@ -74,7 +74,10 @@ public class JavaBasics {
     }
  } */
 
- public class JavaBasics {
+
+//   Learning basics of operators
+ 
+/*  public class JavaBasics {
 public static void main(String[] args){ 
    int x, y, z;
 x = y = z = 2; 
@@ -83,4 +86,76 @@ y -= z;//y=y-z = 2-2
 z /= (x + y);//z=z/(x+y)2
 System.out.println(x + " " + y + " " + z);
 }
+} */
+
+
+/*
+import java.util.Scanner;
+
+public class JavaBasics {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number");
+        int num=sc.nextInt();
+        if(num>=0){
+            System.out.println("The number is Positive");
+        }
+        else{
+            System.out.println("The number is negetive");
+        }
+
+    }
+} */
+
+/*
+import java.util.Scanner;
+  public class JavaBasics {
+public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter you're temperature:-");
+    float temp = sc.nextFloat();
+    if(temp>=100){
+        System.out.println("You have a fever! consult a doctor");
+    }
+    else{
+        System.out.println("You have normal a temperature.");
+    }
 }
+}
+  */
+
+  import java.util.Scanner;
+  public class JavaBasics {
+  
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number of the week from (1-7):-");
+        int num=sc.nextInt();
+        switch (num) {
+            case 1:
+                System.out.println("Today is Monday!");
+                break;
+            case 2:
+                System.out.println("Today is Tuesday!");
+                break;
+            case 3:
+                System.out.println("Today is wednesday!");
+                break;
+            case 4:
+                System.out.println("Today is Thursday!");
+                break;
+            case 5:
+                System.out.println("Today is Friday!");
+                break;
+            case 6:
+                System.out.println("Today is Saturday!");
+                break;
+            case 7:
+                System.out.println("Today is Sunday!");
+                break;
+            default:
+            System.out.println("Where are you from man?");
+                break;
+        }
+    }
+  }
