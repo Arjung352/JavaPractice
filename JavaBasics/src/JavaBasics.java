@@ -88,7 +88,7 @@ System.out.println(x + " " + y + " " + z);
 }
 } */
 
-
+// positive number or negitive
 /*
 import java.util.Scanner;
 
@@ -107,6 +107,8 @@ public class JavaBasics {
     }
 } */
 
+
+// Temperature
 /*
 import java.util.Scanner;
   public class JavaBasics {
@@ -124,6 +126,10 @@ public static void main(String[] args) {
 }
   */
 
+
+//   provide the day based on its number!
+  /*
+   
   import java.util.Scanner;
   public class JavaBasics {
   
@@ -159,3 +165,31 @@ public static void main(String[] args) {
         }
     }
   }
+   */
+
+
+//    wheather the year is leap year or not
+/*
+   import java.util.Scanner;
+   public class JavaBasics {
+   
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Welcome to our program we will provide weather the year is leap year or not!");
+        System.out.println("Enter the current year:-");
+        int year=sc.nextInt();
+        if(year%4==0){
+            if(year%100==0){
+                if(year%400==0){
+                    System.out.println("It's a leap year");
+                }
+                System.out.println("Not a leap year!");
+            }
+            System.out.println("It's a leap year");
+        }
+        else{
+            System.out.println("Not a leap year!");
+        }
+    }
+   }
+     */
