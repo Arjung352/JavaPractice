@@ -193,3 +193,36 @@ public static void main(String[] args) {
     }
    }
      */
+
+    //  Loops
+    // While loops
+/*
+    public class JavaBasics {
+    
+        public static void main(String[] args) {
+          int counter=0;
+          while(counter<=100){
+            System.out.printf("curruntly the value if counter is -->%d\n",counter);
+            counter++;
+          }  
+        }}
+*/
+
+// Do-while loop
+/*
+import java.util.Scanner;
+        public class JavaBasics {
+    
+        public static void main(String[] args) {
+            Scanner sc=new Scanner(System.in);
+            do{
+                System.out.println("Enter a value");
+                int val=sc.nextInt();
+                System.out.printf("Entered value is %d\n",val);
+                if(val==10){
+                    break;
+                }
+            }while(true);
+            System.out.println("Breaked out of a loop!");
+        }}
+ */
