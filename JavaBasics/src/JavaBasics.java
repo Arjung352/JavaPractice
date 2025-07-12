@@ -226,3 +226,66 @@ import java.util.Scanner;
             System.out.println("Breaked out of a loop!");
         }}
  */
+
+ /*
+ import java.util.Scanner;
+ public class JavaBasics {
+ 
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int evenSum=0;
+        int oddSum=0;
+        int input;
+        int choice;
+        do{
+            System.out.println("Enter a number");
+            input=sc.nextInt();
+            if(input%2==0){
+                evenSum+=input;
+            }
+            else{
+                oddSum+=input;
+            }
+            System.out.println("Want to continue? \n Press 1 to continue and 0 to exit!");
+            choice=sc.nextInt();
+        }while(choice==1);
+        System.out.println("Final even sum-->"+evenSum);
+        System.out.println("Final odd sum-->"+oddSum);
+    }
+ } */
+
+
+//  factorial!
+/*
+ import java.util.Scanner;
+ public class JavaBasics {
+ 
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number to find its factorial!-->");
+        int num=sc.nextInt();
+        int factorial=1;
+        for(int i=1;i<=num;i++){
+            factorial*=i;
+            System.out.println(factorial);
+        }
+        System.out.println("factorial for "+num+" is -->"+factorial);
+    }
+ } */
+
+
+//  multiples
+
+/*
+import java.util.Scanner;
+public class JavaBasics {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number to find its multiples:-");
+        int num=sc.nextInt();
+        for(int i=1;i<=10;i++){
+            System.out.println(num + " * "+i+" = "+ num*i);
+        }
+    }
+} */
