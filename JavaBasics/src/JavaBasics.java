@@ -289,3 +289,63 @@ public class JavaBasics {
         }
     }
 } */
+
+
+// inverted Star patterns
+/*
+public class JavaBasics {
+
+    public static void main(String[] args) {
+        for(int i=1;i<=10;i++){
+            for(int j=10;j>=i;j--){
+                System.out.print("*");
+        }
+        System.out.println();
+        }        
+                
+    }
+}
+ */
+
+// star pattern
+/*
+public class JavaBasics {
+
+    public static void main(String[] args) {
+        for(int i=1;i<=10;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print("*");
+        }
+        System.out.println();
+        }        
+                
+    }
+} */
+
+// star pattern using number's
+
+/*
+ public class JavaBasics {
+
+    public static void main(String[] args) {
+        for(int i=1;i<=10;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print(j);
+        }
+        System.out.println();
+        }        
+                
+    }
+} 
+     */
+
+    //  Function's
+    public class JavaBasics {
+    public static void printHello() {
+        System.out.println("Hello World!");
+        
+    }
+        public static void main(String[] args) {
+            printHello();
+        }
+    }
