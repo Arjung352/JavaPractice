@@ -463,6 +463,7 @@ public class JavaBasics {
 
 // lets solve it in more optimised way!
 
+/*
 import java.util.Scanner;
 public class JavaBasics {
     public static boolean checkPrime(int a) {
@@ -483,5 +484,36 @@ public class JavaBasics {
         System.out.println("Enter a number to check if its prime or not->");
         int num=sc.nextInt();
         System.out.println(checkPrime(num));
+    }
+}
+ */
+
+//  check prime number in a range
+
+import java.util.Scanner;
+public class JavaBasics {
+    public static boolean checkPrime(int a) {
+        if(a==2){
+            return true;
+        }
+        for(int i=2;i<=Math.sqrt(a);i++){
+            if(a%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void range(int num) {
+        for(int i=2;i<=num;i++){
+            if(checkPrime(i)){
+                System.out.print(i+" ");
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter a range to find number's of prime in it");
+        int num=sc.nextInt();
+        range(num);
     }
 }
