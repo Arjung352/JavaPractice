@@ -339,7 +339,10 @@ public class JavaBasics {
 } 
      */
 
-    //  Function's
+
+     //  Function's
+
+     /*
     public class JavaBasics {
     public static void printHello() {
         System.out.println("Hello World!");
@@ -349,3 +352,136 @@ public class JavaBasics {
             printHello();
         }
     }
+*/
+
+
+// functions with parameters:-
+// with void return type!
+
+/*
+import java.util.Scanner;
+public class JavaBasics {
+public static void add(int a,int b) {
+    int sum=a+b;
+    System.out.println("Total of these 2 number is-->"+sum);
+}
+    public static void main(String[] args) {
+        System.out.println("Enter 2 Number to find it's total:-");
+        Scanner sc =new Scanner(System.in);
+        int a =sc.nextInt();
+        int b =sc.nextInt();
+        add(a, b);
+    }
+}
+     */
+
+
+// with int return type!
+
+/*
+import java.util.Scanner;
+public class JavaBasics {
+public static int add(int a,int b) {
+    int sum=a+b;
+    return sum;
+}
+    public static void main(String[] args) {
+        System.out.println("Enter 2 Number to find it's total:-");
+        Scanner sc =new Scanner(System.in);
+        int a =sc.nextInt();
+        int b =sc.nextInt();
+        int sum=add(a, b);
+        System.out.println("Total of these 2 number is-->"+sum);
+
+    }
+}
+    */
+
+    // calculating binomial cofficient!
+
+    /*
+
+    import java.util.Scanner;
+    public class JavaBasics {
+    // firstly need to write the code to find the factorial
+public static int factorial(int value) {
+    int factorial=1;
+    for(int i=1;i<=value;i++){
+        factorial*=i;
+    }
+    return factorial;
+}
+// logic for binomial cofficient
+public static int binomial(int n,int r,int diff) {
+    int binomial=n/(r*diff);
+    return binomial;
+}
+
+// main function
+    public static void main(String[] args) {
+        System.out.println("Enter 2 Number to find it's Binomial Cofficient:-");
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter the value of N->");
+        int a =sc.nextInt();
+        System.out.println("Enter the value of R->");
+        int b =sc.nextInt();
+        int n=factorial(a);
+        int r=factorial(b);
+        int NminR=a-b;
+        int diff=factorial(NminR);
+        int binomial=binomial(n, r, diff);
+        System.out.println("Binomial cofficient of these 2 number's are-->"+binomial);
+    }
+} */
+
+// checking prime numbers
+
+/*
+import java.util.Scanner;
+public class JavaBasics {
+    public static boolean checkPrime(int a) {
+        if(a==2){
+            return true;
+        }
+        for(int i=2;i<=a-1;i++){
+            if(a%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter a number to check if its prime or not->");
+        int num=sc.nextInt();
+        System.out.println(checkPrime(num));
+    }
+}
+     */
+
+// this is an unoptimised way!
+
+// lets solve it in more optimised way!
+
+import java.util.Scanner;
+public class JavaBasics {
+    public static boolean checkPrime(int a) {
+        if(a==2){
+            return true;
+        }
+        // here the loop won't run till n-1 
+        // but instead loop run till root n because after that the number repeats
+        for(int i=2;i<=Math.sqrt(a);i++){
+            if(a%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter a number to check if its prime or not->");
+        int num=sc.nextInt();
+        System.out.println(checkPrime(num));
+    }
+}
