@@ -490,6 +490,7 @@ public class JavaBasics {
 
 //  check prime number in a range
 
+/*
 import java.util.Scanner;
 public class JavaBasics {
     public static boolean checkPrime(int a) {
@@ -515,5 +516,54 @@ public class JavaBasics {
         System.out.println("Enter a range to find number's of prime in it");
         int num=sc.nextInt();
         range(num);
+    }
+}
+ */
+
+//  writting a code to return binary to decimal
+
+/*
+import java.util.Scanner;
+public class JavaBasics {
+    public static int convertBinaryToDecimal(int binary) {
+        int power=0;
+        int decimal=0;
+        for(int i=0;binary>0;i++){
+            int lastDigit=binary%10;
+            decimal=decimal+(lastDigit*((int)Math.pow(2, power)));
+            power++;
+            binary=binary/10;
+        }
+        return decimal;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a binary number to find its decimal number!-->");
+        int num=sc.nextInt();
+        System.out.println("Decimal of Binary "+num+" is -->"+convertBinaryToDecimal(num));
+    }
+} */
+
+
+//  writting a code to return Decimal to Binary
+
+import java.util.Scanner;
+public class JavaBasics {
+    public static int convertDecimalToBinary(int decimal) {
+        int power=0;
+        int binary=0;
+        for(int i=0;decimal>0;i++){
+            int lastDigit=decimal%2;
+            binary=binary+(lastDigit*((int)Math.pow(10, power)));
+            power++;
+            decimal=decimal/2;
+        }
+        return binary;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a Decimal number to find its Binary number!-->");
+        int num=sc.nextInt();
+        System.out.println("Binary of Decimal "+num+" is -->"+convertDecimalToBinary(num));
     }
 }
