@@ -547,6 +547,7 @@ public class JavaBasics {
 
 //  writting a code to return Decimal to Binary
 
+/*
 import java.util.Scanner;
 public class JavaBasics {
     public static int convertDecimalToBinary(int decimal) {
@@ -566,4 +567,100 @@ public class JavaBasics {
         int num=sc.nextInt();
         System.out.println("Binary of Decimal "+num+" is -->"+convertDecimalToBinary(num));
     }
+} */
+
+// writting a function code to print average of 3 number's
+
+/*
+import java.util.Scanner;
+
+public class JavaBasics {
+public static void averageOf3Num() {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter 3 value to find average of those 3-->");
+    int num1=sc.nextInt();
+    int num2=sc.nextInt();
+    int num3=sc.nextInt();
+    int average=(num1+num2+num3)/3;
+    System.out.println("Average of " +num1+" "+ num2+" "+num3+"-->"+average);
 }
+    public static void main(String[] args) {
+        averageOf3Num();
+    }
+}
+ */
+
+//  checking if a number is even or odd
+/*
+import java.util.Scanner;
+
+public class JavaBasics {
+public static boolean isEven(int num) {
+    if(num%2==0){
+        return true;
+    }
+    return false;
+ 
+}
+    public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter a number to know if it's even or not-->");
+    int num1=sc.nextInt();
+    System.out.println(isEven(num1));
+    }
+} */
+
+
+// checking if a number is palindrom or not
+
+/*
+import java.util.Scanner;
+
+public class JavaBasics {
+public static boolean checkingPalindrome(int num) {
+    int orignal=num;
+    int pelindrome=0;
+    while (num>0) {
+        int temp=num%10;
+        pelindrome=pelindrome*10 +temp;
+        num/=10;
+    }
+    if(pelindrome==orignal){
+        return true;
+    }
+    return false;
+ 
+}
+    public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter a number to know if it's palindrome or not-->");
+    int num1=sc.nextInt();
+    System.out.println(checkingPalindrome(num1));
+    }
+} 
+     */
+
+
+    //  provide the sum in a digit;
+
+    /*
+import java.util.Scanner;
+public class JavaBasics {
+public static int sumOfDigit(int num) {
+    int sum=0;
+    while (num>0) {
+        int temp=num%10;
+        sum+=temp;
+        num/=10;
+    }
+    return sum;
+ 
+}
+    public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter a number to know it's sum-->");
+    int num1=sc.nextInt();
+    System.out.println(sumOfDigit(num1));
+    }
+} 
+     */
