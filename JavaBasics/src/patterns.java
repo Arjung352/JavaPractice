@@ -29,16 +29,23 @@ public class patterns {
      */
 
     //  Iverted half triangle
+    /*
 import java.util.Scanner;
 public class patterns {
     public static void inverted_triangle(int size) {
     //  outter loop (rows)
-        for(int i=0;i<=size;i++){
-            for(int j=0;j<size;j++){
-                System.out.print(" ");
-            }
-            System.out.print("*");
+    for(int i=1;i<=size;i++){
+        // inner loop
+        // for printing spaces:-
+        for(int j=1;j<=size-i;j++){
+            System.out.print(" ");            
         }
+        // printing starts
+        for(int j=1;j<=i;j++){
+            System.out.print("*");            
+        }
+        System.out.println("");
+    }
     }
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
@@ -47,5 +54,53 @@ public class patterns {
         inverted_triangle(size);
     }
 }
+     */
 
+    //  Iverted half triangle using number's
+    /*
+import java.util.Scanner;
+public class patterns {
+    public static void inverted_triangle(int size) {
+        //  outter loop (rows)
+    for(int i=0;i<size;i++){
+        // inner loop
+        for(int j=1;j<=size-i;j++){
+            System.out.print(j);            
+        }
+        System.out.println("");
+    }
+    }
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the size of triangle");
+        int size=sc.nextInt();
+        inverted_triangle(size);
+    }
+}
+     */
 
+    //  0-1 triangle
+import java.util.Scanner;
+public class patterns {
+    public static void inverted_triangle(int size) {
+        //  outter loop (rows)
+    for(int i=1;i<=size;i++){
+        // inner loop
+        for(int j=1;j<=i;j++){
+            if((i+j)%2==0){
+                System.out.print(1+" ");
+            }
+            else{
+                System.out.print(0+" ");
+            }
+    }
+    System.out.println("");
+    }
+}
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the size of triangle");
+        int size=sc.nextInt();
+        inverted_triangle(size);
+    }
+}
