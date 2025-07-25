@@ -29,6 +29,9 @@ public class Arrays {
  */
 
  //                             performing linear search 
+
+
+ /*
  import java.util.Scanner;
  public class Arrays {
  public static int search(int num) {
@@ -51,5 +54,32 @@ public class Arrays {
         else{
             System.out.println("value cannot be found!");
         }
+    }
+ }
+     */
+
+     //                             largest in an array!
+
+     import java.util.Scanner;
+ public class Arrays {
+ public static int searchLargest(int arr[]) {
+    int largest=arr[0];
+    for(int i=0;i<arr.length;i++){
+        if(largest<arr[i]){
+            largest=arr[i];
+        }
+    }
+    return largest;
+     }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int array[]=new int[10];
+            System.out.println("Enter the 10 values in an array to find largest value in it-->");
+        for(int i=0;i<10;i++){
+            System.out.println("Enter the "+(i+1)+" value-->");
+            array[i]=sc.nextInt();
+        }
+        int largest=searchLargest(array);
+        System.out.println("Larget value in the Array is --> "+largest);
     }
  }
