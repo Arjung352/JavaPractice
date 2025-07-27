@@ -278,6 +278,7 @@ public static void pyramid(int n) {
  */
 
 //  palimdrome pyramid
+/*
 import java.util.Scanner;
 public class patterns {
 public static void palimdromePyramid(int n) {
@@ -304,3 +305,26 @@ public static void palimdromePyramid(int n) {
         palimdromePyramid(num);
     }
 }
+     */
+
+    //  floyd triangle
+    /*
+    public class patterns {
+    public static void floydTriangle(int n) {
+        int counter=1;
+        // outter loops
+        for(int i=1;i<=n;i++){
+            // inner Loop
+            for(int j=0;j<i;j++){
+                System.out.print(counter+" ");
+                counter++;
+            }
+            System.out.println(" ");
+        }
+    }
+        public static void main(String[] args) {
+            int num=5;
+            floydTriangle(5);
+        }
+    }
+         */
