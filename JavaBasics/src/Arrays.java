@@ -165,7 +165,7 @@ public class Arrays {
 */
 
 //                  printing subarrays!
-
+/*
 public class Arrays {
 public static void subarrays(int arr[]) {
     for(int i=0;i<arr.length;i++){//0
@@ -182,4 +182,4 @@ public static void subarrays(int arr[]) {
       int array[]={2,4,6,8,10};
       subarrays(array);  
     }
-}
+} */
