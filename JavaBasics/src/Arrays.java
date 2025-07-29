@@ -164,22 +164,54 @@ public class Arrays {
 }
 */
 
-//                  printing subarrays!
+// printing SubArrays
 /*
 public class Arrays {
-public static void subarrays(int arr[]) {
-    for(int i=0;i<arr.length;i++){//0
-        for(int j=i;j<arr.length;j++){//0
-            for(int k=i;k<=j;k++){
-                System.out.print(arr[k]+" ");
+    public static void subArrays(int arr[]) {
+        // outter loop
+        for(int i=0;i<arr.length;i++){//0
+            // inner loop
+            for(int j=i;j<arr.length;j++){//0 1 2 3 4
+                // priniting SubArrays
+                for(int k=i;k<=j;k++){//0 01 012 0123 01234
+                    System.out.print(arr[k]);
+                }
+                System.out.println(" ");
             }
             System.out.println(" ");
-        }
-        System.out.println(" ");
+        }        
     }
+public static void main(String[] args) {
+    int arr[]={2,4,6,8,10};
+    subArrays(arr);
+}    
+}
+ */
+
+
+//                  printing MaxSubArraysSum!
+/*
+public class Arrays {
+public static void MaxSubArraysSum(int arr[]) {
+    int currentSum=0;
+    int maxSum=Integer.MIN_VALUE;
+    for(int i=0;i<arr.length;i++){//0
+        for(int j=i;j<arr.length;j++){//0
+            currentSum=0;
+            for(int k=i;k<=j;k++){
+                currentSum+=arr[k];
+                System.out.println(currentSum);
+            }
+            if(currentSum>maxSum){
+                maxSum=currentSum;
+            }
+        }
+    }
+    System.out.println("Max Sum is -->"+maxSum);
 }
     public static void main(String[] args) {
       int array[]={2,4,6,8,10};
-      subarrays(array);  
+      MaxSubArraysSum(array);  
     }
-} */
+} 
+     */
