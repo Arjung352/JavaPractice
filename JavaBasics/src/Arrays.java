@@ -189,8 +189,8 @@ public static void main(String[] args) {
  */
 
 
-//                  printing MaxSubArraysSum!
-/*
+//                  printing MaxSubArraysSum using bruteforce!
+
 public class Arrays {
 public static void MaxSubArraysSum(int arr[]) {
     int currentSum=0;
@@ -214,4 +214,3 @@ public static void MaxSubArraysSum(int arr[]) {
       MaxSubArraysSum(array);  
     }
 } 
-     */
