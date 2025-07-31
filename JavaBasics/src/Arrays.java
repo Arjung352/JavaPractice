@@ -190,7 +190,7 @@ public static void main(String[] args) {
 
 
 //                  printing MaxSubArraysSum using bruteforce!
-
+/*
 public class Arrays {
 public static void MaxSubArraysSum(int arr[]) {
     int currentSum=0;
@@ -214,3 +214,70 @@ public static void MaxSubArraysSum(int arr[]) {
       MaxSubArraysSum(array);  
     }
 } 
+     */
+
+    //  MaxSubArraysSum using prefix!
+ /*   
+public class Arrays {
+public static void MaxSubArraysSum(int arr[]) {
+    int currentSum=0;
+    int maxSum=Integer.MIN_VALUE;
+    int prefix[]=new int[arr.length];
+    prefix[0]=arr[0];
+        // calculating prefix array:-
+        for(int i=1;i<arr.length;i++){
+            prefix[i]=prefix[i-1]+arr[i];
+        } 
+        // prefix array is an array of total of previous elements in an array
+        for(int i=0;i<arr.length;i++){
+            for(int j=i;j<arr.length;j++){
+                currentSum=i==0?prefix[j]:prefix[j]-prefix[i-1];
+                if(currentSum>maxSum){
+                    maxSum=currentSum;
+                }
+            }
+        }
+        System.out.println("Max sum of sub array is -->"+maxSum);
+}
+    public static void main(String[] args) {
+        int arr[]={2,4,6,8,10};
+        MaxSubArraysSum(arr);
+    }
+}
+     */
+     
+    // kadane's algorithem for max sum subarray!
+    
+    public class Arrays {
+    public static void kadanes(int arr[]) {
+        int currentSum=0;
+        int maxSum=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            currentSum=currentSum+arr[i];
+            if(currentSum<0){
+                currentSum=0;
+            }
+            maxSum=Math.max(currentSum, maxSum);
+        }
+        System.out.println("Max sum of sub array is -->"+maxSum);
+    }
+        public static void main(String[] args) {
+            int arr[]={-2,-3,4,-1,-2,1,5,-3};
+            kadanes(arr);
+        }
+    }
+         
+// calculating total of an array
+/*
+         public class Arrays {
+         
+            public static void main(String[] args) {
+                int array[]={-2,-3,4,-1,-2,1,5,-3};
+                int total=0;
+                for(int i=0;i<array.length;i++){
+                    total+=array[i];
+                    System.out.println(total);
+                }
+            }
+         }
+             */
