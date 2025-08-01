@@ -247,7 +247,7 @@ public static void MaxSubArraysSum(int arr[]) {
      */
      
     // kadane's algorithem for max sum subarray!
-    
+    /*
     public class Arrays {
     public static void kadanes(int arr[]) {
         int currentSum=0;
@@ -266,7 +266,7 @@ public static void MaxSubArraysSum(int arr[]) {
             kadanes(arr);
         }
     }
-         
+          */
 // calculating total of an array
 /*
          public class Arrays {
