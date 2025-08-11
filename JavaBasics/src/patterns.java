@@ -308,7 +308,7 @@ public static void palimdromePyramid(int n) {
      */
 
     //  floyd triangle
-    
+    /*
     public class patterns {
     public static void floydTriangle(int n) {
         int counter=1;
@@ -327,3 +327,4 @@ public static void palimdromePyramid(int n) {
             floydTriangle(5);
         }
     }
+         */

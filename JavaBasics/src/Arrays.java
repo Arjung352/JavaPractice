@@ -281,3 +281,56 @@ public static void MaxSubArraysSum(int arr[]) {
             }
          }
              */
+
+             /*
+    // Trapped rain water
+    public class Arrays {
+    public static void TrappedRainWater(int arr[]) {
+        int length=arr.length;
+        // calculating left max boundry
+        int leftMax[]=new int[length];
+        leftMax[0]=arr[0];
+        for(int i=1;i<length;i++){
+            leftMax[i]=Math.max(arr[i],leftMax[i-1]);
+        }
+        // calculating right max boundry
+        int rightMax[]=new int[length];
+        rightMax[length-1]=arr[length-1];
+        for(int i=length-2;i>=0;i--){
+            rightMax[i]=Math.max(arr[i],rightMax[i+1]);
+        }
+    int trappedWater=0;
+    for(int i=0;i<length;i++){
+        int waterLevel=Math.min(rightMax[i], leftMax[i]);
+        trappedWater+=waterLevel-arr[i];
+    }
+    System.out.println("Trapped water is -->"+trappedWater);
+}
+        public static void main(String[] args) {
+            int arr[]={4,2,0,6,3,2,5};
+            TrappedRainWater(arr);
+        }
+    }
+         */
+
+        //  Buying and selling stocks 
+        public class Arrays {
+        public static void BuySellStocks(int price[]) {
+            int buyPrice=Integer.MAX_VALUE;
+            int maxProfit=0;
+            for(int i=0;i<price.length;i++){
+                if(buyPrice<price[i]){
+                    int profit=price[i]-buyPrice;
+                    maxProfit=Math.max(maxProfit, profit);
+                }
+                else{
+                    buyPrice=price[i];
+                }
+            }
+            System.out.println(maxProfit);
+        }
+            public static void main(String[] args) {
+                int prices[]={7,1,5,3,6,4};
+                BuySellStocks(prices);
+            }
+        }
