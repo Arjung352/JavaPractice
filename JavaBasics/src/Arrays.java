@@ -314,6 +314,7 @@ public static void MaxSubArraysSum(int arr[]) {
          */
 
         //  Buying and selling stocks 
+        /*
         public class Arrays {
         public static void BuySellStocks(int price[]) {
             int buyPrice=Integer.MAX_VALUE;
@@ -334,3 +335,30 @@ public static void MaxSubArraysSum(int arr[]) {
                 BuySellStocks(prices);
             }
         }
+             */
+            // practiced max profit
+            public class Arrays {
+            public static void maxProfit(int arr[]) {
+                // initialize with the max value
+                int buyPrice=Integer.MAX_VALUE;
+                int maxProfit=0;
+                for(int i=0;i<arr.length;i++){
+                    // find the lowest value to set it as a buyPrice
+                    if(buyPrice>arr[i]){
+                        buyPrice=arr[i];
+                    }
+                    // if buyPrice is smaller than the current price 
+                    else{
+                        // calculate the profit
+                        int profit = arr[i] - buyPrice;
+                        // compare the profit and choose the max profit
+                        maxProfit=Math.max(profit,maxProfit);
+                    }
+                }
+                System.out.println("Max profit is -->"+maxProfit);
+            }
+                public static void main(String[] args) {
+                int arr[]={7,1,5,3,6,4}; 
+                maxProfit(arr);  
+                }
+            }
