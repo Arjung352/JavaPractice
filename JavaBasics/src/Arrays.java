@@ -337,7 +337,7 @@ public static void MaxSubArraysSum(int arr[]) {
         }
              */
             // practiced max profit
-            /*
+            
             public class Arrays {
             public static void maxProfit(int arr[]) {
                 // initialize with the max value
@@ -363,4 +363,4 @@ public static void MaxSubArraysSum(int arr[]) {
                 maxProfit(arr);  
                 }
             }
-                 */
+                 
