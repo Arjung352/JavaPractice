@@ -337,7 +337,7 @@ public static void MaxSubArraysSum(int arr[]) {
         }
              */
             // practiced max profit
-            
+            /*
             public class Arrays {
             public static void maxProfit(int arr[]) {
                 // initialize with the max value
@@ -363,4 +363,37 @@ public static void MaxSubArraysSum(int arr[]) {
                 maxProfit(arr);  
                 }
             }
-                 
+                  */
+                  
+                
+                  //   practicing the trapped water
+public class Arrays {
+public static void trappedRainWater(int arr[]) {
+    int length=arr.length;
+    // calculating leftMax
+    int leftMax[]=new int[length];
+    leftMax[0]=arr[0];
+    for(int i=1;i<length;i++){
+        leftMax[i]=Math.max(arr[i],leftMax[i-1]);
+    }
+    // calculating rightMax
+    int rightMax[]=new int[length];
+    rightMax[length-1]=arr[length-1];
+    for(int i=length-2;i>=0;i--){
+        rightMax[i]=Math.max(arr[i],rightMax[i+1]);
+    }
+
+    // now finding waterLevel and trapped water
+
+    int trappedRainWater=0;
+    for(int i=0;i<length;i++){
+        int waterLevel=Math.min(rightMax[i], leftMax[i]);
+        trappedRainWater+=waterLevel-arr[i];
+    }
+    System.out.println("Trapped Rain Water-->"+trappedRainWater);
+}
+    public static void main(String[] args) {
+     int arr[]={4,2,0,6,3,2,5};
+     trappedRainWater(arr);   
+    }
+}
