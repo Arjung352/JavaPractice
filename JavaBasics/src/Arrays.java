@@ -367,6 +367,7 @@ public static void MaxSubArraysSum(int arr[]) {
                   
                 
                   //   practicing the trapped water
+                  /*
 public class Arrays {
 public static void trappedRainWater(int arr[]) {
     int length=arr.length;
@@ -397,3 +398,87 @@ public static void trappedRainWater(int arr[]) {
      trappedRainWater(arr);   
     }
 }
+     */
+
+    //  practice question for the array from the sheet
+
+
+    //  finding duplicates in an array
+    /*
+    public class Arrays {
+    public static boolean findDuplicates(int arr[]) {
+        // outterLoop
+        for(int i=0;i<arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[j]==arr[i]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+        public static void main(String[] args) {
+            int arr[]={1,2,4,8};
+            boolean result=findDuplicates(arr);
+            System.out.println("Is the array contain any duplicates?-->"+result);
+        }
+    }
+         */
+
+        //  find the max profit
+/* 
+        public class Arrays {
+        public static void maxProfit(int arr[]) {
+            int buyPrice=Integer.MAX_VALUE;
+            int maxProfit=0;
+            for(int i=0;i<arr.length;i++){
+                if(buyPrice>arr[i]){
+                    buyPrice=arr[i];
+                }
+                else{
+                    int profit=arr[i]-buyPrice;
+                    maxProfit=Math.max(maxProfit, profit);
+                }
+            }
+            System.out.println("Max profit is -->"+maxProfit);
+        }
+            public static void main(String[] args) {
+                int arr[]={4,2,1,6,3,2,5};
+                maxProfit(arr);
+            }
+        }
+            */
+
+            // find water trapped
+            /*
+            public class Arrays {
+            public static void trappedRainWater(int arr[]) {
+                // calculating auxillary array's
+                // left max array
+                int length=arr.length;
+                int leftMax[]=new int[length];
+                leftMax[0]=arr[0];
+                for(int i=1;i<length;i++){
+                    leftMax[i]=Math.max(arr[i],leftMax[i-1]);
+
+                } 
+                // calculating rightMax
+                int rightMax[]=new int[length];
+                rightMax[length-1]=arr[length-1];
+                for(int i=length-2;i>=0;i--){
+                    rightMax[i]=Math.max(arr[i],rightMax[i+1]);
+                }
+                // calculating trapped rainWater
+                int trappedRainWater=0;
+                for(int i=0;i<length;i++){
+                    int waterLevel=Math.min(rightMax[i],leftMax[i]);
+                    trappedRainWater+=waterLevel-arr[i];
+                }
+                System.out.println("Trapped rainwater is -->"+trappedRainWater);
+            }
+                public static void main(String[] args) {
+                    int arr[]={4,2,0,6,3,2,5};
+                    trappedRainWater(arr);
+                }
+            }
+                 */
