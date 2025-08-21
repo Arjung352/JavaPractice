@@ -482,3 +482,140 @@ public static void trappedRainWater(int arr[]) {
                 }
             }
                  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                                          2D Arrays
+
+
+// Printing and taking input in 2d arrays
+/*
+import java.util.Scanner;
+public class Arrays {
+    
+public static void Two_D_Arrays(int arr[][]) {
+    // Taking input for 2d arrays
+    Scanner sc= new Scanner(System.in);
+    int m=arr.length;//ROWS
+    int n=arr[0].length;//COLOUMN
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            System.out.println("Enter the value of index "+(i)+" "+(j)+" -->");
+            arr[i][j]=sc.nextInt();
+        }
+    }
+
+    // printing the 2d Arrays
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            System.out.print(arr[i][j]+" ");
+        }
+        System.out.println(" ");
+    }
+}
+    public static void main(String[] args) {
+        int arr[][]=new int [3][3];
+        Two_D_Arrays(arr);
+    }
+}  
+ */
+
+
+// Searching in 2d matrix
+/*
+import java.util.Scanner;
+public class Arrays {
+    
+public static void Two_D_Arrays(int arr[][]) {
+    // Taking input for 2d arrays
+    Scanner sc= new Scanner(System.in);
+    int m=arr.length;//ROWS
+    int n=arr[0].length;//COLOUMN
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            System.out.println("Enter the value of index "+(i)+" "+(j)+" -->");
+            arr[i][j]=sc.nextInt();
+        }
+    }
+    
+    System.out.println("Enter a key to find it inside the array-->");
+    int key=sc.nextInt();
+    int flag=0;
+    // printing the 2d Arrays
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(arr[i][j]==key){
+                flag=1;
+            }
+            System.out.print(arr[i][j]+" ");
+        }
+        System.out.println(" ");
+    }
+    if(flag!=1){
+        System.out.println("Element not found in the array");        
+    }
+    else{
+        System.out.println("Element found in the array");
+    }
+}
+    public static void main(String[] args) {
+        int arr[][]=new int [3][3];
+        Two_D_Arrays(arr);
+    }
+}  
+     */
+
+    //  largest and smallest number in the array
+    import java.util.Scanner;
+    public class Arrays {
+    public static void Two_D_Arrays(int arr [][]) {
+        Scanner sc=new Scanner(System.in);
+        int smallest=Integer.MAX_VALUE;
+        int largest=Integer.MIN_VALUE;
+        int m=arr.length;
+        int n=arr[0].length;
+        // taking values in the array
+        // rows
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                System.out.println("Enter the value of index ("+i+" "+j+")");
+                arr[i][j]=sc.nextInt();
+                // calculating largest value
+                if(arr[i][j]>largest){
+                    largest=arr[i][j];
+                }
+                // calculating largest value
+                if(arr[i][j]<smallest){
+                    smallest=arr[i][j];
+                }
+            }
+        }
+        
+        // printing the array:-
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(arr[i][j]+ " ");
+            }
+            System.out.println(" ");
+        }
+
+        // printing the smallest and the largest values
+        System.out.println("Smallest Value in the matrix is -->"+smallest+"\nLargest value in the matrix is -->"+largest);
+    }
+        public static void main(String[] args) {
+            int arr[][]=new int [3][3];
+            Two_D_Arrays(arr);
+        }
+    }
