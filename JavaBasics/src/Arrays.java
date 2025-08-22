@@ -578,6 +578,8 @@ public static void Two_D_Arrays(int arr[][]) {
      */
 
     //  largest and smallest number in the array
+
+    /*
     import java.util.Scanner;
     public class Arrays {
     public static void Two_D_Arrays(int arr [][]) {
@@ -589,6 +591,7 @@ public static void Two_D_Arrays(int arr[][]) {
         // taking values in the array
         // rows
         for(int i=0;i<m;i++){
+            // coloumn
             for(int j=0;j<n;j++){
                 System.out.println("Enter the value of index ("+i+" "+j+")");
                 arr[i][j]=sc.nextInt();
@@ -619,3 +622,23 @@ public static void Two_D_Arrays(int arr[][]) {
             Two_D_Arrays(arr);
         }
     }
+         */
+
+
+        //  spiral matrix
+
+        public class Arrays {
+        public static void spiralMatrix(int arr[][]) {
+            int startRow=0;
+            int startColoumn=0;
+            int endRow=arr.length-1;
+            int endColoumn=arr[0].length-1;
+            while(startColoumn<=endColoumn&&startRow<=endRow){
+                
+            }
+        }
+            public static void main(String[] args) {
+                int arr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+                spiralMatrix(arr);
+            }
+        }
