@@ -627,6 +627,7 @@ public static void Two_D_Arrays(int arr[][]) {
 
         //  spiral matrix
 
+        /*
         public class Arrays {
         public static void spiralMatrix(int arr[][]) {
             int startRow=0;
@@ -642,3 +643,71 @@ public static void Two_D_Arrays(int arr[][]) {
                 spiralMatrix(arr);
             }
         }
+             */
+
+
+
+            //  diagonal matrix
+            /*
+            public class Arrays {
+            public static void diagonalMatrixSum(int arr[][]) {
+                int sum=0;
+                // solution using brute force visitng every single element
+                
+                // for(int i=0;i<arr.length;i++){
+                //     for(int j=0;j<arr[0].length;j++){
+                //         if(i==j){
+                //             sum+=arr[i][j];
+                //         }
+                //         if(i+j==arr.length-1){
+                //             sum+=arr[i][j];
+                //         }
+                //     }
+                // }
+                //      
+                    // more optimised approach 
+                     for(int i=0;i<arr.length;i++){
+                        // primary diagonal
+                        sum+=arr[i][i];
+
+                        // secondary diagonal
+                        if(i!=arr.length-1-i){
+                            sum+=arr[i][arr.length-1-i];
+                        }
+                     }
+                System.out.println(sum);
+            }
+                public static void main(String[] args) {
+                     int arr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+                     diagonalMatrixSum(arr);
+                }
+            }
+             */
+
+
+            //  search in sorted matrix
+
+            public class Arrays {
+            public static boolean searchSortedMatrix(int arr[][], int key) {
+                int row=0; 
+                int col=arr[0].length-1;
+                while (row<arr.length&&col>=0) {
+                    if(arr[row][col]==key){
+                        System.out.println("Key found at index ("+row+","+col+")");
+                        return true;
+                    }
+                    else if(key<arr[row][col]){
+                        col--;
+                    }
+                    else {
+                        row++;
+                    }
+                }
+                System.out.println("Key not found");
+                return false;
+            }
+                public static void main(String[] args) {
+                    int arr[][]={{10,20,30,40},{15,25,35,45},{27,29,37,48},{32,33,39,50}};
+                    searchSortedMatrix(arr,33);
+                }
+            }
