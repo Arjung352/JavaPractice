@@ -686,7 +686,7 @@ public static void Two_D_Arrays(int arr[][]) {
 
 
             //  search in sorted matrix
-
+/*
             public class Arrays {
             public static boolean searchSortedMatrix(int arr[][], int key) {
                 int row=0; 
@@ -711,3 +711,4 @@ public static void Two_D_Arrays(int arr[][]) {
                     searchSortedMatrix(arr,33);
                 }
             }
+                 */
