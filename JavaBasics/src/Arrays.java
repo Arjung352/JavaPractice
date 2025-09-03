@@ -712,3 +712,80 @@ public static void Two_D_Arrays(int arr[][]) {
                 }
             }
                  */
+
+
+
+  //  performing search in the sorted matrix!
+/* 
+public class Arrays {
+    public static boolean searchSortedMatrix(int arr[][],int key){
+        int row=arr.length-1;
+        int coloumn=0;
+        while(row>=0&&coloumn<arr[0].length){
+            if(arr[row][coloumn]==key){
+                System.out.println("Key found at index ("+row+","+coloumn+")");
+                return true;
+            }
+            else if(key>arr[row][coloumn]){
+                coloumn++;
+            }
+            else{
+                row--;
+            }
+        }
+        System.out.println("Cannot find the key!");
+        return false;
+    }
+    public static void main(String[] args) {
+    int arr[][]={{10,20,30,40},{15,25,35,45},{27,29,37,48},{32,33,39,50}};
+    searchSortedMatrix(arr,33);
+
+    }
+}
+*/
+
+//  sum of the diagonal matrix
+/*
+public class Arrays {
+    public static void diagonalMatrixSum(int arr[][]) {
+        // using brute force (Less optimised approach)
+        // primary diagenal
+        
+    //     int primarySum=0;
+    //     int secondarySum=0;
+    //     for(int i=0;i<arr[0].length;i++){
+    //         for(int j=0;j<arr.length;j++){
+    //             if(i==j){
+    //                 primarySum+=arr[i][j];
+    //             }
+    //             // secondry sum
+    //             if(i+j==arr.length-1){
+    //                 secondarySum+=arr[i][j];
+    //             }                
+    //         }
+    //     }
+    // System.out.println("Primary Sum -->"+primarySum);
+    // System.out.println("Secondary Sum -->"+secondarySum);
+    //  
+// More optimised approach
+    int primarySum=0;
+    int secondarySum=0;
+    for(int i=0;i<arr.length;i++){
+        primarySum+=arr[i][i];
+        // but if the matrix is odd like 3*3 or 5*5 so one term will be common in both the sums to encounter this 
+    if(i!=arr.length-1-i){
+        // for example m*n=5 so (3,3) would come 2 time when calculating the primary and the secondary sum so here we will check in the secondary if i!=arr.length-1-i so if i==2 and 5-2-1=2=2 so this will not sum up!
+        secondarySum+=arr[i][arr.length-i-1];
+    }
+    }
+System.out.println("Primary Sum -->"+primarySum);
+    System.out.println("Secondary Sum -->"+secondarySum);
+    
+       
+}
+    public static void main(String[] args) {
+    int arr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+    diagonalMatrixSum(arr);
+    }
+}
+ */
