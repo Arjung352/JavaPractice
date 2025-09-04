@@ -789,3 +789,120 @@ System.out.println("Primary Sum -->"+primarySum);
     }
 }
  */
+
+//  spiral matrix
+/*
+public class Arrays {
+public static void spiralMatrix(int arr[][]) {
+    int startRow = 0;
+    int startCol = 0;
+    int endRow = arr.length - 1;
+    int endCol = arr[0].length - 1;
+
+    while (startRow <= endRow && startCol <= endCol) {
+        // top
+        for (int i = startCol; i <= endCol; i++) {
+            System.out.print(arr[startRow][i] + " ");
+        }
+
+        // right
+        for (int i = startRow + 1; i <= endRow; i++) {
+            System.out.print(arr[i][endCol] + " ");
+        }
+
+        // bottom
+        for (int i = endCol - 1; i >= startCol; i--) {
+            if (startRow == endRow) break; // avoid duplicate row
+            System.out.print(arr[endRow][i] + " ");
+        }
+
+        // left
+        for (int i = endRow - 1; i > startRow; i--) {
+            if (startCol == endCol) break; // avoid duplicate column
+            System.out.print(arr[i][startCol] + " ");
+        }
+
+        startRow++;
+        startCol++;
+        endRow--;
+        endCol--;
+    }
+    System.out.println();
+}
+
+    public static void main(String[] args) {
+            int arr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+            spiralMatrix(arr);
+    }
+}
+     */
+
+
+    //  questions for the matrix!
+
+    // Q1 find the numbers 7 appear in the array
+    /*
+    public class Arrays {
+    public static void countSeven(int arr[][]) {
+        int count=0;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                if(arr[i][j]==7){
+                    count++;
+                }
+            }
+        }
+        System.out.println("Total times 7 appeare is --> "+count);
+    }
+        public static void main(String[] args) {
+            int arr[][]={{4,7,8},{8,8,7}};
+            countSeven(arr);
+        }
+    }
+         */
+
+        // Q2 find the sum for the 2nd row
+        /*
+        public class Arrays {
+        public static void sumOfRow(int arr[][]) {
+            int sum=0;
+            for(int i=0;i<arr[0].length;i++){
+                sum+=arr[1][i];
+            }
+            System.out.println("Sum of the 2nd row is --> "+sum);
+        }
+            public static void main(String[] args) {
+                int arr[][]={{1,4,9},{11,4,3},{2,2,3}};
+                sumOfRow(arr);
+            }
+        }
+             */
+
+            //Q3 find the transpose of the matrix
+            public class Arrays {
+
+            
+            public static void transpose(int arr[][]) {
+    int transpose[][] = new int[arr[0].length][arr.length];
+
+    // Fill transpose
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = 0; j < arr[0].length; j++) {
+            transpose[j][i] = arr[i][j];
+        }
+    }
+
+    // Print transpose
+    for (int i = 0; i < transpose.length; i++) {
+        for (int j = 0; j < transpose[0].length; j++) {
+            System.out.print(transpose[i][j] + " ");
+        }
+        System.out.println();
+    }
+}
+
+                public static void main(String[] args) {
+                    int arr[][]={{4,7,8},{8,8,7}};
+                    transpose(arr);
+                }
+            } 
