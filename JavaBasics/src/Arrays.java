@@ -879,6 +879,7 @@ public static void spiralMatrix(int arr[][]) {
              */
 
             //Q3 find the transpose of the matrix
+            /*
             public class Arrays {
 
             
@@ -906,3 +907,4 @@ public static void spiralMatrix(int arr[][]) {
                     transpose(arr);
                 }
             } 
+                 */
