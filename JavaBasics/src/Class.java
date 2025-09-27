@@ -1,9 +1,11 @@
 public class Class {
     public static void main(String[] args) {
         BankAccount b1=new BankAccount();
+        BankAccount b2=new BankAccount(7751);
         b1.setAccountDetails(007, "Arjun gupta");
         System.out.println(b1.getHolderName());
         System.out.println(b1.getAccountNumber());
+        System.out.println(b2.getPassword());
     }
 }
 /*
@@ -29,9 +31,23 @@ String colour;
 // 3. protected 
 // 4. public
 
+
+
+// there are 3 types of constructors 
+// 1.parameter constructors
+// 2.non-parameter constructors
+// 3.copy constructors
+
+
 class BankAccount {
     public String holderName;
     private int accountNumber;
+    private int password;
+    // parameter constructors
+    BankAccount(int password){
+        this.password=password;
+    }
+        // non-parameter constructors
     BankAccount(){
         System.out.println("Constructor called!");
     }
@@ -44,6 +60,9 @@ class BankAccount {
     }
     String getHolderName(){
         return this.holderName;
+    }
+    int getPassword(){
+        return this.password;
     }
 }
 // The four pillars of Object-Oriented Programming (OOP) are:-
