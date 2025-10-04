@@ -1,32 +1,22 @@
 public class Class {
     public static void main(String[] args) {
+        /*
+        Student s1=new Student();
+        Student s2=new Student();
+        Student s3=new Student();
+        s1.setName("Arjun");
+        s2.setName("Ansh");
+        s3.setName("Adarsh");
+        s1.schoolName="SGTBIMIT";
+        System.out.println(s1.schoolName);
+        s1.showName();
+        System.out.println(s2.schoolName);
+        s2.showName();
+        System.out.println(s3.schoolName);
+        s3.showName();
+         */
         Dog kimmi=new Dog();
-        Cat cat=new Cat();
-        Human human=new Human();
-        Tuna tuna=new Tuna();
-        Shark shark=new Shark();
-        Peacaok peacaok=new Peacaok();
-        kimmi.legs=4;
-        kimmi.barks();
-        cat.legs=4;
-        cat.Meow();
-        human.legs=2;
-        human.speaks();
-        peacaok.fly=false;
-        peacaok.nationalBird();
-        tuna.canBeEaten=true;
-        tuna.tuna();
-        shark.canBeEaten=false;
-        shark.shark();
-        System.out.println("Mammels Legs:-");
-        System.out.println("Dog "+kimmi.legs);
-        System.out.println("Cat "+cat.legs);
-        System.out.println("Human "+human.legs);
-        System.out.println("Bird fly:-");
-        System.out.println("Peakock "+peacaok.fly);
-        System.out.println("Fish can be eaten:-");
-        System.out.println("Tuna "+tuna.canBeEaten);
-        System.out.println("Shark "+shark.canBeEaten);
+        System.out.println(kimmi.colour);
         }
 }
 
@@ -163,6 +153,7 @@ class Dog extends Animal{
 
 // 4.Hybrid Inheritance
 
+/*
 class Animal{
     String Colour;
     void eats(){
@@ -219,3 +210,174 @@ class Cat extends Mammel{
         System.out.println("Cat Meow");
     }
 }
+     */
+
+
+    //  Polymorphism
+    // Polymorphism in Java is one of the core concepts in object-oriented programming (OOP) that allows objects to behave differently based on their specific class type.
+
+// There are 2 types of polymorphism 
+// Method overloading(Compile Time Polymorphism Static)
+// Method overriding(Run Time Polymorphism Dynamic)
+
+// method overloading
+/*
+class MethodOverloading{
+    int sum(int a,int b){
+        return a+b;
+    }
+    float sum(float a,float b){
+        return a+b;
+    }
+    int sum(int a,int b,int c){
+        return a+b+c;
+    }
+}
+     */
+
+    //  method overriding
+    // when parent and child class both have same fucntion but with the diffrent defination
+
+    /*
+    class MethodOverriding{
+        void eat(){
+            System.out.println("Eats Nothing");
+        }
+    }
+    class Child extends MethodOverriding  {
+        void eat(){
+            System.out.println("Eats foods");
+        }   
+        
+    }
+ */
+
+
+//  Abstraction 
+// Abstraction in Java is the process of hiding internal implementation details and showing only essential functionality to the user. It focuses on what an object does rather than how it does it.
+
+// there are 2 ways we can achive abstraction in java
+// 1. using Abstract keyword
+// 2. using Interfaces
+
+
+// Abstract classes
+
+// points to remember in abstract classes:-
+// 1.we cannot make the instance or object of an abstaract class
+// 2.we can have abstract and non-abstract methods in it.
+// 3.we can have construtor in abstract class.
+// 4.abstract methods are only supposed to be initialized we cannot define its working we can only initialize it once a class inherits it then that class is supposed to define its working and its compulsary
+// 5. One more thing that a constructors of multilevel classes are supposed to be called Hierarchical way top to bottom 
+
+/*abstract class Remote{
+    Remote(){
+        System.out.println("Its an Abstract class");
+    }
+    abstract void turnOf();
+    abstract void turnOn();
+} 
+
+class Tv extends Remote{
+    Tv(){
+        System.out.println("Its a Tv constructor");
+    }
+    void turnOf() {
+        System.out.println("Tv turned of.");
+    }
+    void turnOn() {
+        System.out.println("Tv turned on.");
+    }
+}*/
+
+
+// Interfaces
+// An Interface in Java programming language is defined as an abstract type used to specify the behaviour of a class. An interface in Java is a blueprint of a behaviour. A Java interface contains static constants and abstract methods.
+
+// The interface in Java is a mechanism to achieve abstraction.
+// By default, variables in an interface are public, static and final.
+// It is used to achieve abstraction and multiple inheritance in Java.
+// It supports loose coupling (classes depend on behavior, not implementation).
+// In other words, interfaces primarily define methods that other classes must implement.
+// An interface in Java defines a set of behaviours that a class can implement, usually representing a CAN-DO relationship, but not always in every scenario.
+
+/*
+interface ChessPlayer{
+    void moves();
+}
+class Queen implements ChessPlayer{
+    public void moves(){
+        System.out.println("Left,Right,Up,Down,Diagonal-(In all 4 directions)");
+    }
+}
+class Pawn implements ChessPlayer{
+    public void moves(){
+        System.out.println("Top(2 steps),Bottom(1 Steps)");
+    }
+}
+     */
+
+
+    //  implementing multiple inheritance
+/*
+    interface Add{
+        int add(int a,int b);
+    }
+    interface Sub{
+        int sub(int a,int b);
+    }
+    class Cal implements Add,Sub{
+        public int add(int a ,int b){
+            return a+b;
+        }
+        public int sub(int a ,int b){
+            return a-b;
+        }
+    } 
+         */
+
+
+
+//  Static keyword
+// The static keyword in Java is mainly used for memory management, allowing variables and methods to belong to the class itself rather than individual instances. The static keyword is used to share the same variable or method of a given class. The users can apply static keywords with variables, methods, blocks, and nested classes. The static keyword belongs to the class rather than an instance of the class. The static keyword is used for a constant variable or a method that is the same for every instance of a class.
+
+/*
+class Student{
+    int rollNo;
+    String Name;
+
+    static String schoolName;
+
+    void setName(String Name){
+        this.Name=Name;
+    }
+    void setRollNo(int rollNo){
+        this.rollNo=rollNo;
+    }
+    void showName(){
+        System.out.println(Name);
+    }
+    void showRollNo(){
+        System.out.println(rollNo);
+    }
+}
+     */
+
+
+
+    //  Super keyword
+    // The super keyword in Java is a reference variable that is used to refer to the parent class when we are working with objects.
+
+    class Animal{
+        String colour;
+        Animal(){
+            System.out.println("Animal constructor is called");
+        }
+    }
+    class Dog extends Animal{
+        Dog(){
+            super();//This will initialize the constructor of the parent class
+            super.colour="Black";//Accessing parent class variable and settig a value in it
+            System.out.println("DOg class constructor is called");
+        }
+    }
