@@ -29,7 +29,7 @@ public class internal{
 }  */
 
 // task-2(Demonstrate thread synchronization by creating a SharedDataStore class where both threads attempt to update shared data. Ensure controlled access using synchronized blocks or methods.)
-/*
+
    class SharedDataStore {
     private int sharedData = 0;
 
@@ -91,4 +91,4 @@ public class internal {
 }
 
 
- */
+ 
