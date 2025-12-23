@@ -72,7 +72,7 @@ class BackupTask extends Thread {
     }
 }
 
-public class internal {
+public class Internal {
     public static void main(String[] args) throws InterruptedException {
         SharedDataStore store = new SharedDataStore();
 
