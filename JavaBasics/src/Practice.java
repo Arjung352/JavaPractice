@@ -89,6 +89,7 @@ public static void zeroOne(int size) {
     }
          */
     // butterfly pattern
+    /*
     public static void butterfly(int size) {
         // upper half of the butterfly
         for(int i=1;i<=size;i++){
@@ -124,12 +125,116 @@ public static void zeroOne(int size) {
         }
         
     }
+         */
+        // Solid rhombus
+        /*
+        public static void solidRhombus(int size) {
+            // outter loop
+            for(int i=1;i<=size;i++){
+                // printing spaces
+                for(int s=0;s<size-i;s++){
+                    System.out.print(" ");
+                }
+                // printing stars
+                for(int j=0;j<size;j++){
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+             */
+        // hollow  rhombus
+        /*
+            public static void hollowRhombus(int size) {
+                // outter loop
+                for(int i=1;i<=size;i++){
+                    // printing spaces
+                    for(int s=0;s<size-i;s++){
+                        System.out.print(" ");
+                    }
+                    // logic to print starts
+                    for(int j=0;j<size;j++){
+                        if(i==1||i==size||j==0||j==size-1){
+                            System.out.print("*");
+                        }
+                        else{
+                            System.out.print(" ");  
+                        }
+                    }
+                    System.out.println();
+                }
+}
+                 */
+        // Diamond pattern
+        /*
+        public static void diamond(int size) {
+        for(int i=1;i<=size;i++){
+        // printing spaces
+        for(int j=1;j<=size-i;j++){
+            System.out.print(" ");
+        }
+        // printing starts
+        for(int k=1;k<=2*(i-1)+1;k++){
+            System.out.print("*");
+        }
+        // printing spaces
+        for(int j=1;j<=size-i;j++){
+            System.out.print(" ");
+        }
+        System.out.println(" ");
+    }
+        for(int i=size;i>=1;i--){
+        // printing spaces
+        for(int j=1;j<=size-i;j++){
+            System.out.print(" ");
+        }
+        // printing starts
+        for(int k=1;k<=2*(i-1)+1;k++){
+            System.out.print("*");
+        }
+        // printing spaces
+        for(int j=1;j<=size-i;j++){
+            System.out.print(" ");
+        }
+        System.out.println(" ");
+    }
+}
+ */
+    // palindrome pyramid
+    /*
+        public static void palimdromePyramid(int size) {
+            // outter loop
+            for(int i=1;i<=size;i++){
+                // printing space
+                for(int s=0;s<size-i;s++){
+                    System.out.print(" ");
+                }
+                // printing number
+                for(int j=i;j>=1;j--){
+                    System.out.print(j);
+                }
+                // printing the numbers to the right
+                for(int k=2;k<=i;k++){
+                    System.out.print(k);
+                }
+                 // printing space
+                for(int s=0;s<size-i;s++){
+                    System.out.print(" ");
+                }
+                System.out.println();
+            }
+        }
+             */
     public static void main(String[] args) {
         // hollowRectangle(4);
         // invertedPyramid(5);
         // invertedPyramidWithNumber(5);
         // zeroOne(5);
         // floydTriangle(6);
-        butterfly(5);
+        // butterfly(5);
+        // solidRhombus(2);
+        // hollowRhombus(7);
+        // diamond(5);
+        // palimdromePyramid(5);
     }
 }
