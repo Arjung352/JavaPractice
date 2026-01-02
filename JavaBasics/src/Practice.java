@@ -225,6 +225,87 @@ public static void zeroOne(int size) {
             }
         }
              */
+
+        // Arrays!
+
+        // printing pairs of the array
+        /*
+        public static void arrayPairs(int arr[]) {
+        //outter loop
+        for(int i=0;i<arr.length;i++){
+            // inner loop to make pairs
+            for(int j=i+1;j<arr.length;j++){
+                System.out.print("("+arr[i]+","+arr[j]+") ");
+            }
+            System.out.println();
+        } 
+        } */
+    //    printing subarray in arrays
+    /*
+    public static void subarray(int arr[]) {
+        // outter loop
+        for(int i=0;i<arr.length;i++){
+            // inner loop to select window
+            for(int j=i;j<arr.length;j++){
+                // printing the elements from the window
+                for(int k=i;k<=j;k++){
+                    System.out.print("("+arr[k]+")");
+                }
+                System.out.println();
+            }
+        }
+    } */
+//    printing sum of the subarray in arrays
+/*
+
+    public static int subarraySum(int arr[]) {
+        // using brute force
+        int sum=Integer.MIN_VALUE;
+        int currSum=0;
+        for(int i=0;i<arr.length;i++){
+            for(int j=i;j<arr.length;j++){
+                for(int k=i;k<=j;k++){
+                    System.out.print("("+arr[k]+")");
+                    currSum+=arr[k];
+                }
+                System.out.println();
+                if(currSum>sum){
+                    sum=currSum;
+                } 
+                currSum=0;
+            }
+        }
+        return sum;
+         
+        // using kadane's algo
+        int maxSum=Integer.MIN_VALUE;
+        int currSum=0;
+        for(int i=0;i<arr.length;i++){
+            currSum+=arr[i];
+            if(currSum<0){
+                currSum=0;
+            }
+            maxSum=Math.max(maxSum, currSum);
+        }
+        return maxSum;
+    }
+ */
+
+    // Buy Sell stocks
+    public static void buySellStocks(int arr[]) {
+        int maxProfit=0;
+        int buyingPrice=Integer.MAX_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(buyingPrice<arr[i]){
+                int profit=arr[i]-buyingPrice;
+                maxProfit=Math.max(maxProfit, profit);
+            }
+            else{
+                buyingPrice=arr[i];
+            }
+        }
+        System.out.println("MaxProfit-->"+maxProfit);
+    }
     public static void main(String[] args) {
         // hollowRectangle(4);
         // invertedPyramid(5);
@@ -236,5 +317,10 @@ public static void zeroOne(int size) {
         // hollowRhombus(7);
         // diamond(5);
         // palimdromePyramid(5);
+        int number[]={7,1,5,3,6,4};
+        // arrayPairs(number);
+        // subarray(number);
+        // System.out.println(subarraySum(number));\
+        buySellStocks(number);
     }
 }
