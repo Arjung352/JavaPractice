@@ -292,6 +292,7 @@ public static void zeroOne(int size) {
  */
 
     // Buy Sell stocks
+    /*
     public static void buySellStocks(int arr[]) {
         int maxProfit=0;
         int buyingPrice=Integer.MAX_VALUE;
@@ -306,6 +307,33 @@ public static void zeroOne(int size) {
         }
         System.out.println("MaxProfit-->"+maxProfit);
     }
+         */
+
+        // trapped rain water
+        
+        public static int trappedRainWater(int arr[]) {
+            int length=arr.length;
+            // calculating left max
+            int leftMax[]=new int[length];
+            leftMax[0]=arr[0];
+            for(int i=1;i<length;i++){
+               leftMax[i]=Math.max(leftMax[i-1], arr[i]); 
+            }
+            // calculating right max
+            System.out.println();
+            int rightMax[]=new int[length];
+            rightMax[length-1]=arr[length-1];
+            for(int k=length-2;k>=0;k--){
+                rightMax[k]=Math.max(rightMax[k+1], arr[k]);
+            } 
+            // calculating trapped water
+            int trappedrainWater=0;
+            for(int j=0;j<length;j++){
+                int waterLevel=Math.min(rightMax[j], leftMax[j]);
+                trappedrainWater+=waterLevel-arr[j];
+            }
+            return trappedrainWater;
+        }
     public static void main(String[] args) {
         // hollowRectangle(4);
         // invertedPyramid(5);
@@ -317,10 +345,11 @@ public static void zeroOne(int size) {
         // hollowRhombus(7);
         // diamond(5);
         // palimdromePyramid(5);
-        int number[]={7,1,5,3,6,4};
+        int number[]={4,2,0,6,3,2,5};
         // arrayPairs(number);
         // subarray(number);
-        // System.out.println(subarraySum(number));\
-        buySellStocks(number);
+        // System.out.println(subarraySum(number));
+        // buySellStocks(number);
+        System.out.println("trappedRainWater is -->"+trappedRainWater(number));
     }
 }
