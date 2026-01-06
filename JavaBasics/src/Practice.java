@@ -310,7 +310,7 @@ public static void zeroOne(int size) {
          */
 
         // trapped rain water
-        
+        /*
         public static int trappedRainWater(int arr[]) {
             int length=arr.length;
             // calculating left max
@@ -334,6 +334,76 @@ public static void zeroOne(int size) {
             }
             return trappedrainWater;
         }
+             */
+
+        // sorting techniques
+        // bubble sorting 
+        /*
+        public static void bubbleSort(int arr[]) {
+            // outter loop
+            for(int i=0;i<arr.length-1;i++){
+                // inner loop
+                for(int j=0;j<arr.length-i-1;j++){
+                    // swapping logic
+                    if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            } 
+        }
+        printArr(arr);
+    }
+    public static void printArr(int arr[]) {
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+",");
+        }        
+    }
+         */
+
+    // selection sort
+/*
+    public static void selectionSort(int arr[]) {
+        // outter loop
+        for(int i=0;i<arr.length;i++){
+            // inner loop
+            int minPos=i;
+            for(int j=i+1;j<arr.length;j++){
+                // comparing
+                if(arr[minPos]>arr[j]){
+                    minPos=j;
+                } 
+            }
+            // replacing the numbers
+            int temp=arr[minPos];
+            arr[minPos]=arr[i];
+            arr[i]=temp;
+        }
+        printArr(arr);
+    }
+        public static void printArr(int arr[]) {
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+",");
+        }        
+    }
+ */
+// insertion sort
+public static void insertionSort(int arr[]) {
+    for(int i=1;i<arr.length;i++){
+        int curr=arr[i];
+        int prev=i-1;
+        // finding the correct position
+        while(prev>=0&&arr[prev]>curr){
+            arr[prev+1]=arr[prev];
+            prev--;
+        }
+        // insertion
+        arr[prev+1]=curr;
+    }
+    for(int i=0;i<arr.length;i++){
+        System.out.print(arr[i]+" ");
+    }
+}
     public static void main(String[] args) {
         // hollowRectangle(4);
         // invertedPyramid(5);
@@ -350,6 +420,10 @@ public static void zeroOne(int size) {
         // subarray(number);
         // System.out.println(subarraySum(number));
         // buySellStocks(number);
-        System.out.println("trappedRainWater is -->"+trappedRainWater(number));
+        // System.out.println("trappedRainWater is -->"+trappedRainWater(number));
+        // bubbleSort(number);
+        // selectionSort(number);
+        insertionSort(number);
+
     }
 }

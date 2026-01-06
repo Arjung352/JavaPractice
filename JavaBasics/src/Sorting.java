@@ -25,7 +25,7 @@ public class Sorting {
     bubbleSort(arr);
  }   
 }
-  */
+*/
 
 
 //   selection sort
@@ -57,7 +57,7 @@ public class Sorting {
  }   
 }
 
- */
+*/
 
 
 // insertion sort
@@ -134,7 +134,7 @@ public static void printArr(int arr[]) {
          */
 
         //  reverse selection sort
-
+/*
         public class Sorting {
     public static void selectionSort(int arr[]) {
         // outter loop
@@ -161,3 +161,4 @@ public static void printArr(int arr[]) {
     selectionSort(arr);
  }   
 }
+  */
