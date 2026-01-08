@@ -388,6 +388,7 @@ public static void zeroOne(int size) {
     }
  */
 // insertion sort
+/*
 public static void insertionSort(int arr[]) {
     for(int i=1;i<arr.length;i++){
         int curr=arr[i];
@@ -404,6 +405,58 @@ public static void insertionSort(int arr[]) {
         System.out.print(arr[i]+" ");
     }
 }
+     */
+
+
+// 2d arrays
+
+
+// printing 2d arr
+public static void printArr(int arr[][]) {
+    int m=arr.length;//ROWS
+    int n=arr[0].length;//COLOUMN
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            System.out.print(arr[i][j]+" ");
+        }
+        System.out.println(" ");
+    }
+}
+// spiral matrix
+
+public static void spiralMatrix(int arr[][]) {
+    int startRow=0;
+    int startCol=0;
+    int endRow=arr.length-1;
+    int endCol=arr[0].length-1;
+    
+    // while condition
+    while(startRow<=endRow&&startCol<=endCol){
+        // printing top
+        for(int i=startCol;i<=endCol;i++){
+            System.out.print(arr[startRow][i] + " ");
+        }
+        // printing right
+        for(int r=startRow+1;r<=endRow;r++){
+           System.out.print(arr[r][endCol] + " ");
+        }
+        // printing bottom
+        for(int b=endCol-1;b>=startCol;b--){
+            if (startRow == endRow) break; // avoid duplicate row
+            System.out.print(arr[endRow][b] + " ");
+        }
+        // printing left
+        for(int l=endRow-1;l>startRow;l--){
+            if ( startCol==endCol ) break; // avoid duplicate col
+            System.out.print(arr[l][startCol] + " ");
+        }
+        startRow++;
+        startCol++;
+        endCol--;
+        endRow--;
+    }
+    System.out.println();
+}
     public static void main(String[] args) {
         // hollowRectangle(4);
         // invertedPyramid(5);
@@ -415,7 +468,7 @@ public static void insertionSort(int arr[]) {
         // hollowRhombus(7);
         // diamond(5);
         // palimdromePyramid(5);
-        int number[]={4,2,0,6,3,2,5};
+        // int number[]={4,2,0,6,3,2,5};
         // arrayPairs(number);
         // subarray(number);
         // System.out.println(subarraySum(number));
@@ -423,7 +476,9 @@ public static void insertionSort(int arr[]) {
         // System.out.println("trappedRainWater is -->"+trappedRainWater(number));
         // bubbleSort(number);
         // selectionSort(number);
-        insertionSort(number);
-
+        // insertionSort(number);
+        int twoDarr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        printArr(twoDarr);
+        spiralMatrix(twoDarr);
     }
 }
