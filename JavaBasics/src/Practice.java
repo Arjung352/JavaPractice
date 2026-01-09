@@ -256,9 +256,9 @@ public static void zeroOne(int size) {
         }
     } */
 //    printing sum of the subarray in arrays
-/*
 
     public static int subarraySum(int arr[]) {
+        /*
         // using brute force
         int sum=Integer.MIN_VALUE;
         int currSum=0;
@@ -276,7 +276,7 @@ public static void zeroOne(int size) {
             }
         }
         return sum;
-         
+         */
         // using kadane's algo
         int maxSum=Integer.MIN_VALUE;
         int currSum=0;
@@ -289,7 +289,7 @@ public static void zeroOne(int size) {
         }
         return maxSum;
     }
- */
+ 
 
     // Buy Sell stocks
     /*
@@ -409,7 +409,7 @@ public static void insertionSort(int arr[]) {
 
 
 // 2d arrays
-
+/*
 
 // printing 2d arr
 public static void printArr(int arr[][]) {
@@ -457,6 +457,45 @@ public static void spiralMatrix(int arr[][]) {
     }
     System.out.println();
 }
+     */
+
+// diagonal sum of the array:-
+/*
+public static void diagonalSum(int arr[][]) {
+    int Sum=0;
+    for(int i=0;i<arr.length;i++){
+        // calculating primary diagonal
+            Sum+=arr[i][i];
+            // calculating secondary diagonal
+            if(i!=arr[0].length-i-1){
+                Sum+=arr[i][arr[0].length-i-1]; 
+            }
+        }
+        System.out.println("Sum of the diagonals are -->"+Sum);
+}
+         */
+
+// search in sorted matrix
+/*
+public static boolean searchSortedMatrix(int arr[][], int key) {
+    int row=0;
+    int col=arr[0].length-1;
+    while(row<arr.length&&col>=0){
+        if(arr[row][col]==key){
+            System.out.println("Key found at index ("+row+","+col+")");
+            return true;
+        }
+        else if(key>arr[row][col]){
+            row++;
+        }
+        else{
+            col--;
+        }
+    }    
+    System.out.println("Key not found");
+    return false;
+}
+     */
     public static void main(String[] args) {
         // hollowRectangle(4);
         // invertedPyramid(5);
@@ -468,7 +507,7 @@ public static void spiralMatrix(int arr[][]) {
         // hollowRhombus(7);
         // diamond(5);
         // palimdromePyramid(5);
-        // int number[]={4,2,0,6,3,2,5};
+        // int number[]={2,3,-2,4};
         // arrayPairs(number);
         // subarray(number);
         // System.out.println(subarraySum(number));
@@ -477,8 +516,11 @@ public static void spiralMatrix(int arr[][]) {
         // bubbleSort(number);
         // selectionSort(number);
         // insertionSort(number);
-        int twoDarr[][]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
-        printArr(twoDarr);
-        spiralMatrix(twoDarr);
+        // int twoDarr[][]={{1,2,3},{4,5,6},{7,8,9}};
+        // printArr(twoDarr);
+        // spiralMatrix(twoDarr);
+        // diagonalSum(twoDarr);
+        int sortedMatrix[][]={{10,20,30,40},{15,25,35,45},{27,29,37,48},{32,33,39,50}};
+        // searchSortedMatrix(sortedMatrix, 30);
     }
 }
