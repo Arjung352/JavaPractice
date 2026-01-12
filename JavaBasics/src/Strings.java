@@ -50,6 +50,7 @@ public class Strings {
  */
 
     // largest odd number in a string
+    /*
 public static String largestOddNumber(String str) {
     int end = str.length() - 1;
 
@@ -63,6 +64,55 @@ public static String largestOddNumber(String str) {
     }
     return "";
 }
+     */
+
+    // letter to upper case
+/* 
+    public static String letterToUpperCase(String str) {
+        StringBuilder result=new StringBuilder();
+        char ch=Character.toUpperCase(str.charAt(0));
+        result.append(ch);
+        for(int i=1;i<str.length();i++){
+            if(i<str.length()-1&&str.charAt(i)==' '){
+                result.append(str.charAt(i));
+                i++;
+                result.append(Character.toUpperCase(str.charAt(i)));
+            }
+            else{
+                result.append(str.charAt(i));
+            }
+        }
+        return result.toString();
+    }
+        */
+
+    // string compression
+public static String stringCompression(String str) {
+    if (str == null || str.length() == 0) {
+        return str;
+    }
+
+    StringBuilder res = new StringBuilder();
+    int counter = 1;
+
+    for (int i = 1; i < str.length(); i++) {
+        if (str.charAt(i) == str.charAt(i - 1)) {
+            counter++;
+        } else {
+            res.append(str.charAt(i - 1));
+            res.append(counter);
+            counter = 1;
+        }
+    }
+
+    // append last character and its count
+    res.append(str.charAt(str.length() - 1));
+    res.append(counter);
+
+    return res.toString();
+}
+
+
 public static void main(String[] args) {
     // strings in java
     // String str=new String("Hello world!");
@@ -98,7 +148,9 @@ else{
    }
      */
     // System.out.println(shortestPath("nwsenwseswwe"));
-    System.out.println(largestOddNumber("022116564"));
-    
+    // System.out.println(largestOddNumber("022116564"));
+    // System.out.println(letterToUpperCase("hello world"));
+    System.out.println(stringCompression("abc"));
+
 }
 }
