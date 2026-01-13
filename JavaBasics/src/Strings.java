@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 public class Strings {
     // strings using loops
@@ -87,6 +88,7 @@ public static String largestOddNumber(String str) {
         */
 
     // string compression
+    /*
 public static String stringCompression(String str) {
     if (str == null || str.length() == 0) {
         return str;
@@ -112,7 +114,46 @@ public static String stringCompression(String str) {
     return res.toString();
 }
 
+ */
 
+// strings questions
+
+    //count vowels in a string entered by the user
+/*
+public static void countVowels(String str) {
+    int count=0;
+    str=str.toLowerCase();
+    for(int i=0;i<str.length();i++){
+        if(str.charAt(i)=='a'||str.charAt(i)=='e'||str.charAt(i)=='i'||str.charAt(i)=='o'||str.charAt(i)=='u'){
+            count++;
+        }
+    }
+    System.out.println(count);
+}
+     */
+
+
+    //whether the string is anagram or not
+    /*
+public static void findAnagram(String str1,String str2) {
+    char ch1[]=str1.toCharArray();
+    char ch2[]=str2.toCharArray();
+    Arrays.sort(ch1);
+    Arrays.sort(ch2);
+    if(ch1.length==ch2.length){
+        boolean result=Arrays.equals(ch1, ch2);
+        if(result){
+            System.out.println("Both of the strings are ANAGRAM");
+        }
+        else{
+            System.out.println("The strings are not ANAGRAM");
+        }
+    }
+    else{
+        System.out.println("The strings are not ANAGRAM");
+    }
+}
+     */
 public static void main(String[] args) {
     // strings in java
     // String str=new String("Hello world!");
@@ -150,7 +191,8 @@ else{
     // System.out.println(shortestPath("nwsenwseswwe"));
     // System.out.println(largestOddNumber("022116564"));
     // System.out.println(letterToUpperCase("hello world"));
-    System.out.println(stringCompression("abc"));
-
+    // System.out.println(stringCompression("abc"));
+    // countVowels("Arjun Gupta");
+    // findAnagram("anagram", "nagaram");
 }
 }
