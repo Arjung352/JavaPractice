@@ -496,6 +496,20 @@ public static boolean searchSortedMatrix(int arr[][], int key) {
     return false;
 }
      */
+
+// Fibonacci series using for loop
+public static void Fibonacci() {
+int n = 10;
+int a = 0, b = 1;
+
+for(int i = 1; i <= n; i++){
+    System.out.print(a + " ");
+    int c = a + b;
+    a = b;
+    b = c;
+}
+}
+
     public static void main(String[] args) {
         // hollowRectangle(4);
         // invertedPyramid(5);
@@ -522,5 +536,6 @@ public static boolean searchSortedMatrix(int arr[][], int key) {
         // diagonalSum(twoDarr);
         int sortedMatrix[][]={{10,20,30,40},{15,25,35,45},{27,29,37,48},{32,33,39,50}};
         // searchSortedMatrix(sortedMatrix, 30);
+        Fibonacci();
     }
 }
