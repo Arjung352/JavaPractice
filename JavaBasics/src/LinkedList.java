@@ -68,6 +68,28 @@ public void print(){
     } 
     System.out.println("Null");
 }
+
+
+// adding an element in a linked list
+public void add(int idx,int data){
+    // if its the only element in the linkedList
+    if(idx==0){
+        addFirst(data);
+        return;
+    }
+    // initialized new variable for node tracking 
+    Node temp=head;
+    Node newNode=new Node(data);
+    int i=0;
+    // loop to itrate till the desired index
+    while(i<idx-1){
+        temp=temp.next;
+        i++;
+    }
+    // performing insertion
+    newNode.next=temp.next;
+    temp.next=newNode;
+}
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
         ll.print();
@@ -81,5 +103,8 @@ public void print(){
         ll.print();
         ll.addLast(5);
         ll.print();
+        ll.add(2, 10);
+        ll.print();
+
     }
 }
