@@ -132,6 +132,81 @@ public void removeLast(){
     size--;
 } 
 
+// performing linear search
+public int linearSearch(int key){
+    Node temp=head;
+    int i=0;
+    while(temp!=null){
+        if(temp.data==key){
+            return i;
+        }
+        else{
+            temp=temp.next;
+            i++;
+        }
+    }
+    return -1;
+}
+
+// performing recursive search in ll
+public int helper(Node temp,int key){
+    if(temp.next==null){
+        return -1;
+    }
+    if(temp.data==key){
+        return 0;
+    }
+    int idx=helper(temp.next, key);
+    if(idx==-1){
+        return -1;
+    }
+    return idx+1;
+}
+public int recursiveSearch(int key){
+    return helper(head,key);
+}
+
+
+// reversing Linked List
+public void reverse(){
+    Node prev=null;
+    Node curr=tail=head;
+    Node next;
+    while(curr!=null){
+        next=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=next;
+    }
+    head=prev;
+}
+
+
+// Deleting nth node form the end
+public void deletingNthFromEnd(int n){
+    // calculating the size of the LinkedList
+    Node temp=head;
+    int len=0;
+    while(temp!=null){
+        temp=temp.next;
+        len++;
+    }
+    // if head and nth positions are same
+    if(len==n){
+        head=head.next;
+        return;
+    }
+    // other cases for len-n 
+    int i=1;
+    int nodeToFind=size-n;
+    Node prev=head;
+    while (i<nodeToFind) {
+        prev=prev.next;
+        i++;
+    }
+    prev.next=prev.next.next;
+    return;
+}
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
         ll.print();
@@ -154,9 +229,14 @@ public void removeLast(){
         ll.removeFirst();
         ll.print();
         System.out.println(ll.size);
-        ll.removeLast();
+        // ll.removeLast();
         ll.print();
-        System.out.println(ll.size);
-
+        // System.out.println(ll.size);
+        // System.out.println(ll.linearSearch(7));
+        // System.out.println(ll.recursiveSearch(3));
+        // ll.reverse();
+        // ll.print();
+        ll.deletingNthFromEnd(6);
+        ll.print();
     }
 }
