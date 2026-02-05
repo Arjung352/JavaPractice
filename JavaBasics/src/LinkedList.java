@@ -207,6 +207,51 @@ public void deletingNthFromEnd(int n){
     prev.next=prev.next.next;
     return;
 }
+
+
+// checking if the linked list is palindrome or not
+
+// there would be 3 steps to execute the idea
+// 1. find mid
+// 2. reverse one half of the linked list 
+// 3. compare both the halfs
+
+public boolean validPalindrome(){
+    // to find the mid in better time complexity we can use slow and fast approach or turtule and hare algo
+    if(head==null||head.next==null){
+        return true;
+    }
+    Node slow=head;
+    Node fast=head;
+    while(fast.next!=null&&fast!=null){
+        fast=fast.next.next;
+        slow=slow.next;
+    }
+    // so for even fast ends up being null and slow would be exactly in the mid
+    // and for odd length fast.next==null and slow would be also in the mid
+    // now we have the postion of mid now we can initaite and implement the logic of reverse
+    Node prev=null;
+    Node curr=slow;
+    
+    while(curr!=null){
+        Node next=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=next;
+    }
+
+    Node right=prev;
+    Node left=head;
+    // now we can compare both
+    while(right!=null){
+        if(left.data!=right.data){
+            return false;
+        }
+        left=left.next;
+        right=right.next;
+    }
+    return true;
+}
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
         ll.print();
@@ -214,11 +259,11 @@ public void deletingNthFromEnd(int n){
         ll.print();
         ll.addFirst(1);
         ll.print();
-        ll.addLast(4);
+        ll.addLast(3);
         ll.print();
-        ll.addLast(5);
+        ll.addLast(2);
         ll.print();
-        ll.addLast(6);
+        ll.addLast(1);
         ll.print();
         ll.add(2, 3);
         ll.print();
@@ -236,7 +281,8 @@ public void deletingNthFromEnd(int n){
         // System.out.println(ll.recursiveSearch(3));
         // ll.reverse();
         // ll.print();
-        ll.deletingNthFromEnd(6);
+        // ll.deletingNthFromEnd(6);
         ll.print();
+        System.out.println(ll.validPalindrome());
     }
 }
