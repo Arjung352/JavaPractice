@@ -223,9 +223,9 @@ public boolean validPalindrome(){
     }
     Node slow=head;
     Node fast=head;
-    while(fast.next!=null&&fast!=null){
-        fast=fast.next.next;
+    while(fast!=null&&fast.next!=null){
         slow=slow.next;
+        fast=fast.next.next;
     }
     // so for even fast ends up being null and slow would be exactly in the mid
     // and for odd length fast.next==null and slow would be also in the mid
@@ -265,7 +265,7 @@ public boolean validPalindrome(){
         ll.print();
         ll.addLast(1);
         ll.print();
-        ll.add(2, 3);
+        ll.add(2, 2);
         ll.print();
         System.out.println(ll.size);
         ll.addFirst(2);
