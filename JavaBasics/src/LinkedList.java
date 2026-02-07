@@ -252,8 +252,59 @@ public boolean validPalindrome(){
     }
     return true;
 }
+
+
+
+// checking if a cycle is present in a ll or not
+
+// solving this question using slow and fast approach
+
+// this is also know as floyds cycle finding algo
+public boolean checkCycle(){
+    Node slow=head;
+    Node fast=head;
+    while(fast!=null&&fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+        if(slow==fast){
+            return true;
+        }
+    }
+    return false;
+}
+
+// Removing any cycle in a LinkedList
+public void removeCycle(){
+    // Step 1 to find if there's any cycle in the linked list
+    Node slow=head;
+    Node fast=head;
+    boolean cycle=false;
+    while(fast!=null&&fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+        // step 2 is to re initialize the slow with the head
+        if(slow==fast){
+            cycle=true;
+            break;
+        }
+    }
+    if(!cycle){
+        return;
+    }
+    // our last step is to initialize the prev and track the point where they both meet again so that would be our point of cycle 
+    // then we can simply made prev node point to null to make it a linear linked list!
+    slow=head;
+    Node prev=null;
+    while(slow!=fast){
+        prev=fast;
+        slow=slow.next;
+        fast=fast.next;
+    }
+    prev.next=null;
+}
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
+        /*
         ll.print();
         ll.addFirst(2);
         ll.print();
@@ -284,5 +335,15 @@ public boolean validPalindrome(){
         // ll.deletingNthFromEnd(6);
         ll.print();
         System.out.println(ll.validPalindrome());
+        */
+       ll.addLast(1);
+       ll.addLast(2);
+       ll.addLast(3);
+       ll.addLast(4);
+       ll.addLast(5);
+       ll.addLast(6);
+       ll.tail.next=head;
+       ll.removeCycle();
+       System.out.println(ll.checkCycle());
     }
 }
