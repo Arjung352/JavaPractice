@@ -353,6 +353,54 @@ public Node merge(Node head1,Node head2){
     }
     return mergedLL.next;
 }
+
+
+// Zig-Zag problem in linked list
+
+// for example
+// list=12345678
+// output will be-->1-8-2-7-3-6-4-5
+
+// steps to overcome this problem 
+// 1.to find mid
+public void zigZagLinkedList(){
+    Node slow=head;
+    Node fast=head.next;
+    while(fast!=null&&fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+    }
+    // step 2 to divide the linked list in 2 parts-Left and Right
+    // assigned 2 variable to keep a track on those 2 parts of the linked list
+    // and divide the linked list in 2 parts
+    Node leftHead=head;
+    Node rightHead=slow.next;
+    slow.next=null;
+    // now we can reverse the linked list
+    Node prev=null;
+    Node curr=rightHead;
+    Node next;
+    while(curr!=null){
+        next=curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=next;
+    }
+    Node right=prev;
+    Node left=head;
+    // Now we can simply return a zig zag linked list
+    Node tempLeft;
+    Node tempRight;
+    while (left!=null&&right!=null) {
+        tempLeft=left.next;
+        left.next=right;
+        tempRight=right.next;
+        right.next=tempLeft;
+
+        left=tempLeft;
+        right=tempRight;
+    }
+}
     public static void main(String[] args) {
         LinkedList ll=new LinkedList();
         /*
@@ -402,8 +450,12 @@ public Node merge(Node head1,Node head2){
        ll.addFirst(4);
        ll.addFirst(5);
        ll.addFirst(6);
+       ll.addFirst(7);
+       ll.addFirst(8);
        ll.print();
        ll.head=ll.mergeSortLinkedList(ll.head);
+       ll.print();
+       ll.zigZagLinkedList();
        ll.print();
     }
 }
