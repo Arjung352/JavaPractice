@@ -70,6 +70,20 @@ public class DoublyLinkedList {
         size--;
     }
 
+    // reversing the doubly linked list
+    public void reverse(){
+        Node prev=null;
+        Node curr=head;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next=prev;
+            curr.prev=next;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
     public void print(){
         Node temp=head;
         while(temp!=null){
@@ -101,6 +115,8 @@ public class DoublyLinkedList {
         dll.removeFirst();
         dll.print();
         System.out.println(dll.size);
-        
+        System.out.println("Reversing the Linked List");
+        dll.reverse();
+        dll.print();        
     }
 }
