@@ -189,6 +189,7 @@ public void deletingNthFromEnd(int n){
     int len=0;
     while(temp!=null){
         temp=temp.next;
+        System.out.println(len);
         len++;
     }
     // if head and nth positions are same
@@ -455,7 +456,8 @@ public void zigZagLinkedList(){
        ll.print();
        ll.head=ll.mergeSortLinkedList(ll.head);
        ll.print();
-       ll.zigZagLinkedList();
+    //    ll.zigZagLinkedList();
+    ll.deletingNthFromEnd(8);
        ll.print();
     }
 }
