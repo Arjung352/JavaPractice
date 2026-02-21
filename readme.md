@@ -23,6 +23,9 @@ It is intended for learning, revision, and strengthening problem-solving skills 
   - Binary Search
 - Bit Manipulation
 - Linked Lists
+  - Singly linked list 
+  - Doubly linked list 
+  - Circular linked list 
 - Stacks & Queues
 - Trees
 - Binary Search Trees (BST)
