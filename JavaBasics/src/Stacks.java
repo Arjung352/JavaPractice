@@ -52,7 +52,7 @@ public class Stacks {
         }
     }
          */
-
+/*
     // Stacks using Linked List
     public class Stack{
         public class Node{
@@ -108,20 +108,48 @@ public class Stacks {
         System.out.println("null");
         }
     }
+         */
+
+    // Question - Push the data at the bottom
+    public static void pushAtBottom(Stack<Integer> s,int data){
+        // base case
+        if(s.isEmpty()){
+            s.push(data);
+            return;
+        }
+        // work
+        int top=s.pop();
+        pushAtBottom(s, data);
+        // backtrack
+        s.push(top);
+    } 
     public static void main(String[] args) {
-    Stacks outer = new Stacks();
-    Stacks.Stack s = outer.new Stack();
+    // Stacks outer = new Stacks();
+    // Stacks.Stack s = outer.new Stack();
+    // using jfc(Java collection framework) in-built stacks
+    Stack<Integer>s=new Stack<>();
+    /*
     s.push(10);
     s.push(20);
     s.push(30);
     s.push(40);
     s.push(50);
     s.push(60);
-    s.peek();
+    System.out.println(s.peek());
     System.out.println(s.isEmpty());
     s.pop();
     s.pop();
     System.out.println();
-    s.print();
+     */
+
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    pushAtBottom(s,0);
+    while(!s.isEmpty()){
+        System.out.println(s.peek());
+        s.pop();
+    }
     }
 }
