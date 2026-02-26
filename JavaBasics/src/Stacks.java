@@ -111,6 +111,7 @@ public class Stacks {
          */
 
     // Question - Push the data at the bottom
+    
     public static void pushAtBottom(Stack<Integer> s,int data){
         // base case
         if(s.isEmpty()){
@@ -123,6 +124,35 @@ public class Stacks {
         // backtrack
         s.push(top);
     } 
+         
+    // Question - Reverse the string using the Stacks
+    /*
+    public static void ReverseString(String str) {
+        Stack<Character>s=new Stack<>();
+        int i=0;
+        while(i<str.length()){
+            s.push(str.charAt(i));
+            i++;
+        }
+        StringBuilder result=new StringBuilder();
+        while(!s.isEmpty()){
+            result.append(s.pop());
+        }
+        System.out.println(result);
+    }
+         */
+    // reversing the stack using reccursion for optimised approach
+    public static void reverseStack(Stack<Integer>s) {
+        // base case
+        if(s.isEmpty()){
+            return;
+        }
+        // reccursion calls
+        int val=s.pop();
+        reverseStack(s);
+        // backtracking
+        pushAtBottom(s,val);
+    }
     public static void main(String[] args) {
     // Stacks outer = new Stacks();
     // Stacks.Stack s = outer.new Stack();
@@ -146,7 +176,13 @@ public class Stacks {
     s.push(2);
     s.push(3);
     s.push(4);
-    pushAtBottom(s,0);
+    // pushAtBottom(s,0);
+    System.out.println("After reversing");
+    // String str="racecar";
+    // ReverseString(str);
+    System.out.println(s);
+    reverseStack(s); 
+    System.out.println(s);
     while(!s.isEmpty()){
         System.out.println(s.peek());
         s.pop();
