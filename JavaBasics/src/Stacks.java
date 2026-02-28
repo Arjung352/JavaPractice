@@ -142,6 +142,7 @@ public class Stacks {
     }
          */
     // reversing the stack using reccursion for optimised approach
+    /*
     public static void reverseStack(Stack<Integer>s) {
         // base case
         if(s.isEmpty()){
@@ -152,6 +153,28 @@ public class Stacks {
         reverseStack(s);
         // backtracking
         pushAtBottom(s,val);
+    }
+         */
+
+    // stock span problem
+    public static void stockSpan(int stock[],int span[]) {
+        Stack<Integer> s=new Stack<>();
+        span[0]=1;
+        s.push(0);
+        for(int i=1;i<stock.length;i++){
+            int currPrice=stock[i];
+            while(!s.empty()&&currPrice>stock[s.peek()]){
+                s.pop();
+            }
+            if(s.isEmpty()){
+                span[i]=i+1;
+            }
+            else{
+                int prevHigh=s.peek();
+                span[i]=i-prevHigh;
+            }
+            s.push(i);
+        }
     }
     public static void main(String[] args) {
     // Stacks outer = new Stacks();
@@ -177,15 +200,21 @@ public class Stacks {
     s.push(3);
     s.push(4);
     // pushAtBottom(s,0);
-    System.out.println("After reversing");
+    // System.out.println("After reversing");
     // String str="racecar";
     // ReverseString(str);
-    System.out.println(s);
-    reverseStack(s); 
-    System.out.println(s);
-    while(!s.isEmpty()){
-        System.out.println(s.peek());
-        s.pop();
+    // System.out.println(s);
+    // reverseStack(s); 
+    // System.out.println(s);
+    // while(!s.isEmpty()){
+    //     System.out.println(s.peek());
+    //     s.pop();
+    // }
+    int stocks[]={100,80,60,70,60,85,100};
+    int span[]=new int[stocks.length];
+    stockSpan(stocks, span);
+    for(int i=0;i<span.length;i++){
+        System.out.println(span[i]);
     }
     }
 }
