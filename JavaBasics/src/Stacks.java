@@ -204,6 +204,7 @@ public class Stacks {
      */
 
 // using optimised approach using stacks
+/*
     public static void nextGreater(int arr[]) {
         Stack<Integer>s=new Stack<>();
         int nextGreater[]=new int[arr.length];
@@ -222,6 +223,34 @@ public class Stacks {
         for(int i=0;i<nextGreater.length;i++){
             System.out.println(nextGreater[i]);
         }
+    }
+         */
+
+    // valid paranthesis problem
+    public static boolean validParanthesis(String str) {
+        Stack<Character>s=new Stack<>();
+        int len=str.length();
+        for(int i=0;i<len;i++){
+            Character ch=str.charAt(i);
+            if(ch == '(' || ch == '[' || ch == '{'){
+                s.push(str.charAt(i));
+            }else{
+                if (s.isEmpty()) {
+                    return false;
+                }
+                char top = s.pop();
+                if (ch == ')' && top != '(') {
+                    return false;
+                }
+                if (ch == ']' && top != '[') {
+                    return false;
+                }
+                if (ch == '}' && top != '{') {
+                    return false;
+                }
+            }
+        }
+        return s.isEmpty();
     }
     public static void main(String[] args) {
     // Stacks outer = new Stacks();
@@ -266,6 +295,7 @@ public class Stacks {
     }
          */
         int arr[]={6,8,0,1,3};
-        nextGreater(arr);
+        // nextGreater(arr);
+        System.out.println(validParanthesis("([](){})"));
     }
 }
