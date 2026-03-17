@@ -176,6 +176,53 @@ public class Stacks {
             s.push(i);
         }
     }
+
+    // next greater element
+    // using brute force O(n2)
+    /*
+    public static void nextGreater(int arr[]) {
+    Stack<Integer> res = new Stack<>();
+
+    for (int i = 0; i < arr.length; i++) {
+        boolean found = false;
+        for (int j = i + 1; j < arr.length; j++) {
+            if (arr[i] < arr[j]) {
+                res.push(arr[j]);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            res.push(-1);
+        }
+    }
+        while (!res.isEmpty()) {
+        System.out.print(res.remove(0) + " ");
+    }
+
+}
+     */
+
+// using optimised approach using stacks
+    public static void nextGreater(int arr[]) {
+        Stack<Integer>s=new Stack<>();
+        int nextGreater[]=new int[arr.length];
+        for(int i=arr.length-1;i>=0;i--){
+            while(!s.isEmpty()&&arr[s.peek()]<=arr[i]){
+                s.pop();
+            }
+            if(s.isEmpty()){
+                nextGreater[i]=-1;
+            }
+            else{
+                nextGreater[i]=arr[s.peek()];
+            }
+            s.push(i);
+        }
+        for(int i=0;i<nextGreater.length;i++){
+            System.out.println(nextGreater[i]);
+        }
+    }
     public static void main(String[] args) {
     // Stacks outer = new Stacks();
     // Stacks.Stack s = outer.new Stack();
@@ -210,11 +257,15 @@ public class Stacks {
     //     System.out.println(s.peek());
     //     s.pop();
     // }
+    /*
     int stocks[]={100,80,60,70,60,85,100};
     int span[]=new int[stocks.length];
     stockSpan(stocks, span);
     for(int i=0;i<span.length;i++){
         System.out.println(span[i]);
     }
+         */
+        int arr[]={6,8,0,1,3};
+        nextGreater(arr);
     }
 }
