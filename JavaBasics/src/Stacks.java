@@ -157,6 +157,7 @@ public class Stacks {
          */
 
     // stock span problem
+    /*
     public static void stockSpan(int stock[],int span[]) {
         Stack<Integer> s=new Stack<>();
         span[0]=1;
@@ -176,7 +177,7 @@ public class Stacks {
             s.push(i);
         }
     }
-
+    */
     // next greater element
     // using brute force O(n2)
     /*
@@ -227,6 +228,7 @@ public class Stacks {
          */
 
     // valid paranthesis problem
+    /*
     public static boolean validParanthesis(String str) {
         Stack<Character>s=new Stack<>();
         int len=str.length();
@@ -251,6 +253,34 @@ public class Stacks {
             }
         }
         return s.isEmpty();
+    }
+         */
+    // duplicate parantheses
+    public static boolean duplicateParantheses(String str) {
+            Stack<Character>s=new Stack<>();
+            int len=str.length();
+            for(int i=0;i<len;i++){
+                Character ch=str.charAt(i);
+                // closing case
+                if(ch==')'){
+                    int count=0;
+                    while(s.peek()!='('){
+                        s.pop();
+                        count++;
+                    }
+                    if(count<1){
+                        return true;
+                    }
+                    else{
+                        s.pop();
+                    }
+                }
+                else{
+                    s.push(ch);
+                }
+            }
+            return false;
+
     }
     public static void main(String[] args) {
     // Stacks outer = new Stacks();
@@ -296,6 +326,7 @@ public class Stacks {
          */
         int arr[]={6,8,0,1,3};
         // nextGreater(arr);
-        System.out.println(validParanthesis("([](){})"));
+        // System.out.println(validParanthesis("([](){})"));
+        System.out.println(duplicateParantheses("(a+b)"));
     }
 }
