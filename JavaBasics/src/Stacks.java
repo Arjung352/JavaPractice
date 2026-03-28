@@ -346,6 +346,65 @@ public static int maxWater(int[] height){
     }
     return ans;
 }
+
+// min Stack
+class MinStack {
+    class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    private Node head;
+    private int size;
+    private Stack<Integer> minValue;
+
+    public MinStack() {
+        minValue = new Stack<>();
+        head = null;
+        size = 0;
+    }
+    
+    public void push(int val) {
+        Node newNode = new Node(val);
+        size++;
+
+        if (head == null) {
+            head = newNode;
+            minValue.push(val);
+            return; 
+        }
+
+        newNode.next = head;
+        head = newNode;
+
+        minValue.push(Math.min(val, minValue.peek()));
+    }
+    
+    public void pop() {
+        if (head == null) return;
+
+        head = head.next;
+        minValue.pop();
+        size--;
+    }
+    
+    public int top() {
+        if (head == null) return -1;
+        return head.data;
+    }
+    
+    public int getMin() {
+        if (minValue.isEmpty()) {
+            throw new RuntimeException("Stack is empty");
+        }
+        return minValue.peek();
+    }
+}
     public static void main(String[] args) {
     // Stacks outer = new Stacks();
     // Stacks.Stack s = outer.new Stack();
