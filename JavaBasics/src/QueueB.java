@@ -161,11 +161,45 @@ public class QueueB {
             return head.data;
         }
     }
-    
+     static class QueueUsingStack{
+        static Stack<Integer>s1=new Stack<>();
+        static Stack<Integer>s2=new Stack<>();
+        public static boolean isEmpty(){
+            return s1.isEmpty();
+        }
+        // add operation
+        public static void add(int data){
+        while(!s1.isEmpty()){
+            s2.push(s1.pop());
+        }
+        s1.push(data);
+        while(!s2.isEmpty()){
+            s1.push(s2.pop());
+        }
+        // remove operation
+    }
+        public static int remove(){
+            if(s1.isEmpty()){
+                System.out.println("Queue is already empty");
+                return -1;
+            }
+            return s1.pop();
+        }
+
+        // peek
+        public static int peek(){
+            if(s1.isEmpty()){
+                System.out.println("Queue is already empty");
+                return -1;
+            }
+            return s1.peek();
+        }
+    }
     public static void main(String[] args) {
         // LinkedListQueue queue = new LinkedListQueue();
         // Queue using JFC there are 2 ways to create a Queue :Using linkedList and lastlty using arrayDeque
         // Queue<Integer> queue=new LinkedList<>();
+        /*
         Queue<Integer> queue=new ArrayDeque<>();
         queue.add(10);
         queue.add(20);
@@ -177,5 +211,16 @@ public class QueueB {
         while(!queue.isEmpty()){
             System.out.println(queue.remove());
         }
+             */
+        QueueUsingStack customQueue=new QueueUsingStack();
+        System.out.println(customQueue.isEmpty());
+        customQueue.peek();
+        customQueue.remove();
+        customQueue.add(1);
+        customQueue.add(2);
+        customQueue.add(3);
+        System.out.println(customQueue.remove());
+        System.out.println(customQueue.peek());
+        System.out.println(customQueue.isEmpty());
     }
 }
