@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.LinkedList;
 public class QueueB {
     static class MyQueue{
         static int arr[];
@@ -195,6 +196,70 @@ public class QueueB {
             return s1.peek();
         }
     }
+    static class StackUsingQueue{
+        static Queue<Integer> q1=new LinkedList<>();
+        static Queue<Integer> q2=new LinkedList<>();
+        public static boolean isEmpty(){
+            return (q1.isEmpty()&&q2.isEmpty());
+        }
+        public static void push(int data){
+            if(!q1.isEmpty()){
+                q1.add(data);
+            }
+            else{
+                q2.add(data);
+            }
+        }
+        public static int pop(){
+            if(isEmpty()){
+                System.out.println("The Stack is empty");
+                return -1;
+            }
+            int top=-1;
+            // case 1 where the data is stored in q1
+            if(!q1.isEmpty()){
+                while(!q1.isEmpty()){
+                    top=q1.remove();
+                    if(q1.isEmpty()){
+                        break;
+                    }
+                    q2.add(top);
+                }
+            }
+                else{
+                    while(!q2.isEmpty()){
+                    top=q2.remove();
+                    if(q2.isEmpty()){
+                        break;
+                    }
+                    q1.add(top);
+                }
+            }
+            return top;
+    }
+    public static int peek(){
+        if(isEmpty()){
+                System.out.println("The Stack is empty");
+                return -1;
+            }
+            int top=-1;
+            // case 1 where the data is stored in q1
+            if(!q1.isEmpty()){
+                while(!q1.isEmpty()){
+                    top=q1.remove();
+                    q2.add(top);
+                }
+            }
+            // case 2 where the data is stored in q2
+                else{
+                    while(!q2.isEmpty()){
+                    top=q2.remove();
+                    q1.add(top);
+                }
+            }
+            return top;
+    }
+}
     public static void main(String[] args) {
         // LinkedListQueue queue = new LinkedListQueue();
         // Queue using JFC there are 2 ways to create a Queue :Using linkedList and lastlty using arrayDeque
@@ -212,6 +277,7 @@ public class QueueB {
             System.out.println(queue.remove());
         }
              */
+            /*
         QueueUsingStack customQueue=new QueueUsingStack();
         System.out.println(customQueue.isEmpty());
         customQueue.peek();
@@ -222,5 +288,18 @@ public class QueueB {
         System.out.println(customQueue.remove());
         System.out.println(customQueue.peek());
         System.out.println(customQueue.isEmpty());
+         */
+        StackUsingQueue customStack=new StackUsingQueue();
+        customStack.peek();
+        customStack.pop();
+        System.out.println(customStack.isEmpty());
+        customStack.push(1);
+        customStack.push(2);
+        customStack.push(3);
+        System.out.println(customStack.peek());
+        System.out.println(customStack.pop());
+        System.out.println(customStack.peek());
+        System.out.println(customStack.isEmpty());
+
     }
 }
