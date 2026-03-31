@@ -300,6 +300,20 @@ public class QueueB {
         System.out.print(q.remove()+" ");
     }
 }
+
+// reversing a Queue
+    public static void reverseQueue(Queue<Integer>q){
+        Stack<Integer>temp=new Stack<>();
+        while(!q.isEmpty()){
+            temp.push(q.remove());
+        }
+        while(!temp.isEmpty()){
+            q.add(temp.pop());
+        }
+        while(!q.isEmpty()){
+            System.out.print(q.remove()+" ");
+        }
+    }
     public static void main(String[] args) {
         // LinkedListQueue queue = new LinkedListQueue();
         // Queue using JFC there are 2 ways to create a Queue :Using linkedList and lastlty using arrayDeque
@@ -349,7 +363,10 @@ public class QueueB {
         Queue<Integer>q=new LinkedList<>();
         for(int i=1;i<=10;i++){
             q.add(i);
-        }
-        interLeave(q);
+            }
+            /*
+            interLeave(q);
+         */
+        reverseQueue(q);        
     }
 }
