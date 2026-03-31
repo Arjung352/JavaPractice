@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.LinkedList;
 public class QueueB {
+    // Developed Queue from scratch using arrays
     static class MyQueue{
         static int arr[];
         static int size;
@@ -46,6 +47,7 @@ public class QueueB {
             return arr[0];
         }
     }
+    // implemented circular queue
     static class CircularQueue{
         static int arr[];
         static int size;
@@ -112,7 +114,7 @@ public class QueueB {
             this.next=null;
         }
     }
-
+    // implemented queue using linkedList
     static class LinkedListQueue{
         static int size;
         static Node head=null;
@@ -162,6 +164,7 @@ public class QueueB {
             return head.data;
         }
     }
+    // Implemented Queue using Stack
      static class QueueUsingStack{
         static Stack<Integer>s1=new Stack<>();
         static Stack<Integer>s2=new Stack<>();
@@ -196,6 +199,7 @@ public class QueueB {
             return s1.peek();
         }
     }
+    // Implemented Stack using Queue
     static class StackUsingQueue{
         static Queue<Integer> q1=new LinkedList<>();
         static Queue<Integer> q2=new LinkedList<>();
@@ -260,6 +264,42 @@ public class QueueB {
             return top;
     }
 }
+// Find first non Repeating letter
+    public static void firstNonRepeatingLetter(String str){
+        int freq[]=new int[26];
+        Queue<Character>q=new LinkedList<>();
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            q.add(ch);
+            freq[ch-'a']++;
+            while(!q.isEmpty()&&freq[q.peek()-'a']>1){
+                q.remove();
+            }
+            if(q.isEmpty()){
+                System.out.print(-1+" ");
+            }
+            else{
+                System.out.print(q.peek()+" ");
+            }
+        }
+        System.out.println();
+    }
+
+// To perform interleave [1,2,3,4,5,6,7,8,9,10]->[1,6,2,7,3,8,4,9,5,10]
+    public static void interLeave(Queue<Integer> q) {
+    Queue<Integer> temp = new LinkedList<>();
+    int n = q.size();
+    for (int i = 0; i < n / 2; i++) {
+        temp.add(q.remove());
+    }
+    while (!temp.isEmpty()) {
+        q.add(temp.remove());
+        q.add(q.remove());
+    }
+    for (int i = 0; i < n; i++) {
+        System.out.print(q.remove()+" ");
+    }
+}
     public static void main(String[] args) {
         // LinkedListQueue queue = new LinkedListQueue();
         // Queue using JFC there are 2 ways to create a Queue :Using linkedList and lastlty using arrayDeque
@@ -289,6 +329,7 @@ public class QueueB {
         System.out.println(customQueue.peek());
         System.out.println(customQueue.isEmpty());
          */
+        /*
         StackUsingQueue customStack=new StackUsingQueue();
         customStack.peek();
         customStack.pop();
@@ -300,6 +341,15 @@ public class QueueB {
         System.out.println(customStack.pop());
         System.out.println(customStack.peek());
         System.out.println(customStack.isEmpty());
-
+ */
+/*
+        String str="aabccxb";
+        firstNonRepeatingLetter(str);
+         */
+        Queue<Integer>q=new LinkedList<>();
+        for(int i=1;i<=10;i++){
+            q.add(i);
+        }
+        interLeave(q);
     }
 }
