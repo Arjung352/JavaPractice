@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class GreedyAlgo {
     
     // activity selection
     public static void activitySelection(int startTime[],int endTime[]){
-                ArrayList<Integer> result=new ArrayList<>();
+        ArrayList<Integer> result=new ArrayList<>();
         int count=0;
         int lastEndTime=0;
         for(int i=0;i<startTime.length;i++){
@@ -56,6 +57,39 @@ public class GreedyAlgo {
         }
         System.out.println(result);
     }
+
+    // minimum absolute difference pair
+
+    public static void minimumAbsoluteDifferencePair(int arrA[],int arrB[]){
+        Arrays.sort(arrA);        
+        Arrays.sort(arrB);
+        int ans=0;
+        for(int i=0;i<arrA.length;i++){
+            ans+=Math.abs(arrA[i]-arrB[i]);
+        }
+        System.out.println("Minimum Absolute Difference Pair "+ans);
+    }
+
+        public static List<List<Integer>> minimumAbsDifference(int[] arr) {
+        Arrays.sort(arr);
+        // global answer
+        int absDiff=Integer.MAX_VALUE;
+        List<List<Integer>> res = new ArrayList<>();
+        for(int i=0;i<arr.length-1;i++){
+            // local best
+            int diff=arr[i+1]-arr[i];
+            if(diff<absDiff){
+                absDiff=diff;
+                res.clear();
+                res.add(Arrays.asList(arr[i], arr[i + 1]));
+            }
+            else if(diff==absDiff){
+                res.add(Arrays.asList(arr[i], arr[i + 1]));
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         int startTime[]={1,3,0,5,8,5};
         int endTime[]=  {2,4,6,7,9,9};
@@ -64,5 +98,10 @@ public class GreedyAlgo {
         int value[]={60,100,120};
         int capacity=50;
         fractionalKnapsack(weight,value,capacity);
+        int arrA[]={4,1,8,7};
+        int arrb[]={2,3,6,5};
+        minimumAbsoluteDifferencePair(arrA, arrb);
+        List<List<Integer>> result = minimumAbsDifference(new int[]{4, 1, 8, 7});
+        System.out.println("Minimum Absolute Difference Pair: " + result);
     }
 }
