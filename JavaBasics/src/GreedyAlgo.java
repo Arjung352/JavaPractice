@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -90,6 +91,46 @@ public class GreedyAlgo {
         return res;
     }
 
+    public static void maxLengthChainOfPair(int arr[][]) {
+        // fistly we'll sort the array based on the 2nd coloumn
+        Arrays.sort(arr,Comparator.comparingDouble(o->o[1]));
+        ArrayList<Integer> res=new ArrayList<>();
+        res.add(0);
+        int lastEnd=arr[0][1];
+        for(int i=1;i<arr.length;i++){
+            if(lastEnd<=arr[i][0]){
+                res.add(i);
+                lastEnd=arr[i][1];
+            }
+        }
+        System.out.println(res);
+    }
+    public static ArrayList<Integer> coinChange(int[] coins, int amount) {
+        ArrayList<Integer> result=new ArrayList<>();
+        // case 1 when the amount is zero
+        if(amount==0){
+            result.add(0);
+            return result;
+        }
+        Arrays.sort(coins);
+        // valid cases
+        int index=coins.length-1;
+        while(amount>0&&index>=0){
+            if(coins[index]>amount){
+                if(index==0){
+                    result.add(-1);
+                    return result;
+                }
+                index--;
+            }
+            else{
+                amount-=coins[index];
+                result.add(coins[index]);
+            }
+        } 
+        return result;
+    }
+
     public static void main(String[] args) {
         int startTime[]={1,3,0,5,8,5};
         int endTime[]=  {2,4,6,7,9,9};
@@ -103,5 +144,8 @@ public class GreedyAlgo {
         minimumAbsoluteDifferencePair(arrA, arrb);
         List<List<Integer>> result = minimumAbsDifference(new int[]{4, 1, 8, 7});
         System.out.println("Minimum Absolute Difference Pair: " + result);
+        int arr[][]={{5,24},{39,60},{5,28},{27,40},{50,90}};
+        maxLengthChainOfPair(arr);
+        System.out.println(coinChange(new int[]{1,2,5,10,20,50,100,500,2000}, 1059));
     }
 }
