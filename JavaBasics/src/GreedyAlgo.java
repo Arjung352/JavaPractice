@@ -131,6 +131,19 @@ public class GreedyAlgo {
         return result;
     }
 
+    public static void jobSequence(int arr[][]) {
+Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
+        int totalProfit=0;
+        int lastEnd=0;
+        for(int i=0;i<arr.length;i++){
+         if(lastEnd<arr[i][0]){
+             totalProfit+=arr[i][1];
+             lastEnd=arr[i][0];
+             System.out.println("Job "+i+" is selected with profit "+arr[i][1]);
+         }
+        }
+        System.out.println("Total Profit: " + totalProfit);
+    }
     public static void main(String[] args) {
         int startTime[]={1,3,0,5,8,5};
         int endTime[]=  {2,4,6,7,9,9};
@@ -147,5 +160,7 @@ public class GreedyAlgo {
         int arr[][]={{5,24},{39,60},{5,28},{27,40},{50,90}};
         maxLengthChainOfPair(arr);
         System.out.println(coinChange(new int[]{1,2,5,10,20,50,100,500,2000}, 1059));
+        int jobArr[][]={{4,20},{1,10},{1,40},{1,20}};
+        jobSequence(jobArr);
     }
 }
