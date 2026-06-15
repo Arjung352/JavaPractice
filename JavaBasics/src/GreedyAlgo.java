@@ -144,6 +144,39 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
         }
         System.out.println("Total Profit: " + totalProfit);
     }
+
+    // Chochola Problem
+    public static void chocholaProblem(int costver[],int costhor[]){
+        int totalCost=0;
+        Arrays.sort(costver);
+        Arrays.sort(costhor);
+        int i=costver.length-1;
+        int j=costhor.length-1;
+        int verticalPieces=1;
+        int horizontalPieces=1;
+        while(i>=0&&j>=0){
+            if(costver[i]>costhor[j]){
+                totalCost+=costver[i]*horizontalPieces;
+                verticalPieces++;
+                i--;
+            }
+            else{
+                totalCost+=costhor[j]*verticalPieces;
+                horizontalPieces++;
+                j--;
+            }
+        }
+        while(i>=0){
+            totalCost+=costver[i]*horizontalPieces;
+            i--;
+        }
+        while(j>=0){
+            totalCost+=costhor[j]*verticalPieces;
+            j--;
+        }
+        System.out.println("Total Cost: "+totalCost);
+    }
+
     public static void main(String[] args) {
         int startTime[]={1,3,0,5,8,5};
         int endTime[]=  {2,4,6,7,9,9};
@@ -160,7 +193,11 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
         int arr[][]={{5,24},{39,60},{5,28},{27,40},{50,90}};
         maxLengthChainOfPair(arr);
         System.out.println(coinChange(new int[]{1,2,5,10,20,50,100,500,2000}, 1059));
-        int jobArr[][]={{4,20},{1,10},{1,40},{1,20}};
+        // the greedy approach doesn't work for this problem as it may not give the optimal solution
+        int jobArr[][]={{4,40},{1,10},{1,40},{1,20}};
         jobSequence(jobArr);
+        int costver[]={2,1,3,1,4};
+        int costhor[]={4,1,2};
+        chocholaProblem(costver, costhor);
     }
 }
