@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -166,15 +165,54 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
                 j--;
             }
         }
+        // if there are some vertical cuts left
         while(i>=0){
             totalCost+=costver[i]*horizontalPieces;
             i--;
         }
+        // if there are some horizontal cuts left
         while(j>=0){
             totalCost+=costhor[j]*verticalPieces;
             j--;
         }
         System.out.println("Total Cost: "+totalCost);
+    }
+
+    // Split a String in Balanced Strings
+
+        public static int balancedStringSplit(String s) {
+        // so here we need to keep a track of count of l and r when the count became equal we'll split the string as it is balanced
+        int lc=0; 
+        int rc=0;
+        int res=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='R'){
+                rc++;
+            }
+            else{
+                lc++;
+            }
+            if(lc==rc){
+                res++;
+            }
+        } 
+        return res;
+    }
+
+    // Kth largest odd number in a given range
+
+    public static void KthLargestOdd(int l,int r,int k){
+        ArrayList<Integer> result=new ArrayList<>();
+        if(k<1){
+            System.out.println("There cannot be any Kth largest odd number");
+        }
+        for(int i=l;i<=r;i++){
+            if(i%2!=0){
+                result.add(i);
+            }
+        }
+        System.out.println("Kth Largest Odd Number: "+result.get(result.size()-k));
+        
     }
 
     public static void main(String[] args) {
@@ -199,5 +237,7 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
         int costver[]={2,1,3,1,4};
         int costhor[]={4,1,2};
         chocholaProblem(costver, costhor);
+        System.out.println("Balanced String Splits: " + balancedStringSplit("RLRRLLRLRL"));
+        KthLargestOdd(-10, 10, 8);
     }
 }
