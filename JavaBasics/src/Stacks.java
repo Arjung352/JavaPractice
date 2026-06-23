@@ -405,6 +405,51 @@ class MinStack {
         return minValue.peek();
     }
 }
+
+    public int evalRPN(String[] arr) {
+        Stack<Integer> stack = new Stack<>();
+        int res = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            switch (arr[i]) {
+                case "+": {
+                    int operand1 = stack.pop();
+                    int operand2 = stack.pop();
+                    res = operand2 + operand1;
+                    stack.push(res);
+                    break;
+                }
+                case "-": {
+                    int operand1 = stack.pop();
+                    int operand2 = stack.pop();
+                    res = operand2 - operand1;
+                    stack.push(res);
+                    break;
+                }
+                case "*": {
+                    int operand1 = stack.pop();
+                    int operand2 = stack.pop();
+                    res = operand2 * operand1;
+                    stack.push(res);
+                    break;
+                }
+                case "/": {
+                    int operand1 = stack.pop();
+                    int operand2 = stack.pop();
+                    res = operand2 / operand1;
+                    stack.push(res);
+                    break;
+                }
+                default: {
+                    stack.push(Integer.parseInt(arr[i]));
+                    break;
+                }
+            }
+        }
+
+        return stack.pop();
+    }
+
     public static void main(String[] args) {
     // Stacks outer = new Stacks();
     // Stacks.Stack s = outer.new Stack();
