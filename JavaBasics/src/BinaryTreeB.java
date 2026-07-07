@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+
 public class BinaryTreeB {
     static class Node {
         int data;
@@ -93,6 +94,80 @@ public class BinaryTreeB {
                 }
             }
         }
+
+        // hight of the binary tree
+        public static int height(Node root) {
+            if(root==null){
+                return 0;
+            }
+            int leftHeight = height(root.left);
+            int rightHeight = height(root.right);
+            return Math.max(leftHeight,rightHeight)+1;
+        }
+
+        // total number of nodes in the binary tree
+        public static int countNodes(Node root) {
+            if(root==null){
+                return 0;
+            }
+            int leftCount = countNodes(root.left);
+            int rightCount = countNodes(root.right);
+            return leftCount+rightCount+1;
+        }
+
+        // Max level sum of the binary tree
+        public static int maxLevelSum(Node root) {
+        // so what we can do is use LevelOrder traversal and count the maximum if each level and based on that can return the level
+        if(root==null){
+            return 0;
+        }
+        Queue<Node> q = new LinkedList<>();
+        int maxSum=Integer.MIN_VALUE;
+        int level = 1;
+        int ans = 1;
+        q.add(root);
+        q.add(null);
+        int currSum=0;
+        while(!q.isEmpty()){
+            Node currNode = q.remove();
+            // here we'll firstly check if the root is null of not
+            if(currNode==null){
+                // if root is null then we'll check if the queue is empty of not
+                if (currSum > maxSum) {
+                    maxSum = currSum;
+                    ans = level;
+                }
+                currSum = 0;
+                if(q.isEmpty()){
+                    break;
+                }
+                else{
+                    level++;
+                    q.add(null);
+                }
+            }
+            else{
+                currSum+=currNode.data;
+                if(currNode.left!=null){
+                    q.add(currNode.left);
+                }
+                if(currNode.right!=null){
+                    q.add(currNode.right);
+                }
+            }
+        }
+        return ans;
+    }
+
+    // sum of all the nodes in the binary tree
+    public static int sumOfNodes(Node root) {
+        if(root==null){
+            return 0;
+        }
+        int leftSum = sumOfNodes(root.left);
+        int rightSum = sumOfNodes(root.right);
+        return leftSum+rightSum+root.data;
+    }
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
@@ -106,5 +181,13 @@ public class BinaryTreeB {
         PostOrder(root);
         System.out.println("LevelOrder traversal:-");
         levelOrder(root);
+        System.out.println("Height of the tree:-");
+        System.out.println(height(root));
+        System.out.println("Total number of nodes in the tree:-");
+        System.out.println(countNodes(root));
+        System.out.println("Max level sum:-");
+        System.out.println(maxLevelSum(root));
+        System.out.println("Sum of all nodes in the tree:-");
+        System.out.println(sumOfNodes(root));
     }
 } 
