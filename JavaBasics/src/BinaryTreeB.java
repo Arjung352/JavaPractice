@@ -168,6 +168,19 @@ public class BinaryTreeB {
         int rightSum = sumOfNodes(root.right);
         return leftSum+rightSum+root.data;
     }
+
+    // diameter of the binary tree
+    public static int diameter(Node root) {
+        if(root==null){
+            return 0;
+        }
+        int leftDiameter = diameter(root.left);
+        int rightDiameter = diameter(root.right);
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        int selfDiameter = leftHeight+rightHeight+1;
+        return Math.max(selfDiameter,Math.max(leftDiameter,rightDiameter));
+    }
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
@@ -189,5 +202,7 @@ public class BinaryTreeB {
         System.out.println(maxLevelSum(root));
         System.out.println("Sum of all nodes in the tree:-");
         System.out.println(sumOfNodes(root));
+        System.out.println("Diameter of the tree:-");
+        System.out.println(diameter(root));
     }
 } 
