@@ -50,9 +50,9 @@ public class BinaryTreeB {
             if(root==null){
                 return;
             }
-            preOrder(root.left);
+            inOrder(root.left);
             System.out.println(root.data+" ");
-            preOrder(root.right);
+            inOrder(root.right);
         }
         // PostOrder -> Left->Right->Root
         public static void PostOrder(Node root) {
@@ -60,8 +60,8 @@ public class BinaryTreeB {
             if(root==null){
                 return;
             }
-            preOrder(root.left);
-            preOrder(root.right);
+            PostOrder(root.left);
+            PostOrder(root.right);
             System.out.println(root.data+" ");
         }
 
@@ -181,6 +181,31 @@ public class BinaryTreeB {
         int selfDiameter = leftHeight+rightHeight+1;
         return Math.max(selfDiameter,Math.max(leftDiameter,rightDiameter));
     }
+    
+    //another approach to find the diameter of the binary tree in O(n) time complexity
+    static class TreeInfo{
+        int diameter;
+        int height;
+        TreeInfo(int diameter,int height){
+            this.diameter = diameter;
+            this.height = height;
+        }
+    }
+
+    public static TreeInfo diameter2(Node root) {
+        if(root==null){
+            return new TreeInfo(0,0);
+        }
+        TreeInfo left = diameter2(root.left);
+        TreeInfo right = diameter2(root.right);
+        int myHeight = Math.max(left.height,right.height)+1;
+        int diam1 = left.diameter;
+        int diam2 = right.diameter;
+        int diam3 = left.height+right.height+1;
+        int myDiameter = Math.max(diam3,Math.max(diam1,diam2));
+        TreeInfo myInfo = new TreeInfo(myDiameter,myHeight);
+        return myInfo;
+    }
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
@@ -204,5 +229,8 @@ public class BinaryTreeB {
         System.out.println(sumOfNodes(root));
         System.out.println("Diameter of the tree:-");
         System.out.println(diameter(root));
+        System.out.println("Diameter of the tree (optimized):-");
+        System.out.println(diameter2(root).diameter);
+        System.out.println(diameter2(root).height);
     }
 } 
