@@ -29,5 +29,12 @@ class HashMapB{
 
     hash.clear();
     System.out.println(hash.isEmpty());
+Map<String, Integer> occurrenceMap = new HashMap<>();
+
+        for (String item : items) {
+            occurrenceMap.put(item, occurrenceMap.getOrDefault(item, 0) + 1);
+        }
+
+        System.out.println(occurrenceMap); 
     }
 }
