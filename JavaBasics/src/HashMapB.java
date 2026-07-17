@@ -170,7 +170,9 @@ class HashMapB{
 
     hash.clear();
     System.out.println(hash.isEmpty());
-Map<String, Integer> occurrenceMap = new HashMap<>();
+
+    String[] items = new String[]{"apple", "banana", "apple", "orange", "banana", "apple"};
+    HashMap<String, Integer> occurrenceMap = new HashMap<>();
 
         for (String item : items) {
             occurrenceMap.put(item, occurrenceMap.getOrDefault(item, 0) + 1);
