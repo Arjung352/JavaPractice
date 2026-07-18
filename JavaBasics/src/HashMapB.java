@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 class HashMapB{
     static class CustomHashMap<K,V>{
@@ -92,6 +93,56 @@ class HashMapB{
             return Math.abs(key.hashCode())%buckets.length;
         }
     }
+    static class LRUCache {
+
+    private int capacity;
+    private LinkedHashMap<Integer,Integer>map;
+    
+    public LRUCache(int capacity) {
+        this.capacity=capacity;
+        this.map=new LinkedHashMap<>();           
+    }
+    
+    public int get(int key) {
+        //there will be 2 cases if the key is in the map or not
+        // case 1 :- key is not in the map
+        if(!map.containsKey(key)){
+            return -1;
+        }
+        // case 2 :- key is in the map
+        else{
+            int data=map.get(key);
+            map.remove(key);
+            map.put(key,data);
+            return data;
+        }
+    }
+    
+    public void put(int key, int value) {
+        //there will be 2 cases if the key is in the map or not
+        // case 1 :- key is not in the map
+        if(map.containsKey(key)){
+            map.remove(key);
+            map.put(key,value);
+            return;
+        }
+        // case 2 :- key is in the map
+        else{
+            // But here there will be 2 sub cases 
+            // case 2.1 :- map is full
+            if (map.size() == capacity) {
+                int firstKey = map.keySet().iterator().next();
+                map.remove(firstKey);
+                map.put(key, value);
+            }
+            // case 2.1 :- map has capacity
+            else{
+                map.put(key,value);
+            }
+        }
+    }
+}
+
 
     // majority elements
     public static ArrayList<Integer> majorityElement(int[] nums) {
@@ -206,5 +257,13 @@ class HashMapB{
     }
 
     System.out.println(countDistinct(new int[]{1,2,3,4,5,6,7,8,9,10,1,2,3,4,5}));
+
+    LRUCache lru=new LRUCache(3);
+    lru.put(1, 10);
+    lru.put(2, 20);
+    lru.put(3, 30);
+    lru.put(4, 40);
+    System.out.println(lru.get(1)); // Output: -1 (1 is evicted)
+    System.out.println(lru.get(2)); // Output: 20
     }
 }
