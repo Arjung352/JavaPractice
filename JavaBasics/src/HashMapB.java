@@ -192,6 +192,28 @@ class HashMapB{
         }
         return set.size();
     }
+
+    // find itenary from tickets:-
+
+    public static void findItenary(String[][] tickets){
+        HashMap<String,String> map=new HashMap<>();
+        for(int i=0;i<tickets.length;i++){
+            map.put(tickets[i][0],tickets[i][1]);
+        }
+        // now we can use containsValue to check wheather the from is there in the to section
+        String start="";
+        for(String key:map.keySet()){
+            if(!map.containsValue(key)){
+                start=key;
+            }
+        }
+        // now we can print the itenary
+
+        for(String key:map.keySet()){
+            System.out.println(start+" -> "+map.get(start));
+            start=map.get(start);
+        }
+    }
     public static void main(String args[]){   
     HashMap<String,Integer> hash=new HashMap<>();
      
@@ -265,5 +287,7 @@ class HashMapB{
     lru.put(4, 40);
     System.out.println(lru.get(1)); // Output: -1 (1 is evicted)
     System.out.println(lru.get(2)); // Output: 20
+
+    findItenary(new String[][]{{"Chennai", "Mumbai"}, {"Mumbai", "Delhi"}, {"Delhi", "Lucknow"},{"Banglore","Chennai"},{"Lucknow","Banglore"},{"Nashik","Chennai"}});
     }
 }
