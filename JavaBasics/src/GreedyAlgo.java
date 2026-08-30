@@ -215,6 +215,48 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
         
     }
 
+    // remove minimum and maximum from the array
+    public static int removeMinimumAndMaximumFromArray(int[] nums) {
+        // what we can do is use find the both greatest and the smallest number and then find the minimum diffrence from both the ends
+        int min=Integer.MAX_VALUE;
+        int max=Integer.MIN_VALUE;
+        int minIndex=0;
+        int maxIndex=0;
+        int result=0;
+        int n=nums.length;
+
+        for(int i=0;i<nums.length;i++){
+            if (nums[i] < min) {
+                min = nums[i];
+                minIndex = i;
+            }
+
+            if (nums[i] > max) {
+                max = nums[i];
+                maxIndex = i;
+            }
+        }
+        // deletions from left
+        int minLeft = minIndex + 1;
+        int maxLeft = maxIndex + 1;
+
+        // Deletions from right
+        int minRight=n - minIndex;
+        int maxRight=n - maxIndex;
+
+        // there can only be 3 possible states
+        int bothLeft=Math.max(minLeft, maxLeft);
+
+        int bothRight=Math.max(minRight, maxRight);
+
+        int oneLeftOneRight=Math.min(minLeft, maxLeft)+Math.min(minRight, maxRight);
+
+        return Math.min(
+            Math.min(bothLeft, bothRight),
+            oneLeftOneRight
+        );
+    }
+
     public static void main(String[] args) {
         int startTime[]={1,3,0,5,8,5};
         int endTime[]=  {2,4,6,7,9,9};
@@ -239,5 +281,7 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
         chocholaProblem(costver, costhor);
         System.out.println("Balanced String Splits: " + balancedStringSplit("RLRRLLRLRL"));
         KthLargestOdd(-10, 10, 8);
+        int nums[] = {2,10,7,5,4,1,8,6};
+        System.out.println("Minimum Deletions to remove min and max: " + removeMinimumAndMaximumFromArray(nums));
     }
 }
