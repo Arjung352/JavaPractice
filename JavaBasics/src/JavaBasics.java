@@ -1,7 +1,7 @@
 // Taking input from the user!
 
-// import java.util.Scanner;
-// public class JavaBasics{
+import java.util.Scanner;
+public class JavaBasics{
 //     public static void main(String args[]){
 //         Scanner sc=new Scanner(System.in);
 //         System.out.println("Hello World");
@@ -656,11 +656,26 @@ public static int sumOfDigit(int num) {
     return sum;
  
 }
+*/
+    public static void printPattern(int n) {
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<i;j++){
+                if(j==0||j==i-1||i==n){
+                    System.out.print('*');
+                }
+                else{
+                    System.out.print(' ');
+                }
+            }
+            System.out.println("");
+        }
+    }
+
     public static void main(String[] args) {
     Scanner sc=new Scanner(System.in);
-    System.out.println("Enter a number to know it's sum-->");
+    System.out.println("Enter a number to print pattern-->");
     int num1=sc.nextInt();
-    System.out.println(sumOfDigit(num1));
+    // System.out.println(sumOfDigit(num1));
+    printPattern(num1);
     }
 } 
-     */

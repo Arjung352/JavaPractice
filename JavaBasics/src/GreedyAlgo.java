@@ -257,6 +257,28 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
         );
     }
 
+    // gas Station Problem
+    public static int gasStation(int[] gas, int[] cost) {
+        int totalGas = 0;
+        int totalCost = 0;
+        int currGas = 0;
+        int start = 0;
+
+        for (int i = 0; i < gas.length; i++) {
+            totalGas += gas[i];
+            totalCost += cost[i];
+            currGas += gas[i] - cost[i];
+            if (currGas < 0) {
+                start = i + 1;
+                currGas = 0;
+            }
+        }
+        if (totalGas < totalCost) {
+            return -1;
+        }
+        return start;
+   }
+
     public static void main(String[] args) {
         int startTime[]={1,3,0,5,8,5};
         int endTime[]=  {2,4,6,7,9,9};
@@ -283,5 +305,13 @@ Arrays.sort(arr, (a, b) -> Double.compare(b[1], a[1]));
         KthLargestOdd(-10, 10, 8);
         int nums[] = {2,10,7,5,4,1,8,6};
         System.out.println("Minimum Deletions to remove min and max: " + removeMinimumAndMaximumFromArray(nums));
+        int gas[] = {1,2,3,4,5};
+        int cost[] = {3,4,5,1,2};
+        int startIndex = gasStation(gas, cost);
+        if (startIndex != -1) {
+            System.out.println("Starting gas station index: " + startIndex);
+        } else {
+            System.out.println("No valid starting gas station index found.");
+        }
     }
 }
